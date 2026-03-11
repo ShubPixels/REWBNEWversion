@@ -1,0 +1,49 @@
+const CategoryProducts = [
+    //wastemange
+    [categoryid[0]{
+      title: "Baling Press Machines",
+      description:
+        "Are you a restaurant owner looking to grow your business? Reach new customers when you join our network.",
+      image: BalingPressMachines,
+    },
+    {
+      title: "Scrap Shearing Machine",
+      description:
+        "Join our elite league of delivery riders delivering happiness to customers and earn to achieve your dreams while at it.",
+      image: ScrapShearingMachine,
+    },]
+  ];
+
+
+
+
+
+
+
+
+  const CategoryProducts = [
+    {
+      title: "Baling Press Machines",
+      description:
+        "Are you a restaurant owner looking to grow your business? Reach new customers when you join our network.",
+      image: BalingPressMachines,
+    },
+    {
+      title: "Scrap Shearing Machine",
+      description:
+        "Join our elite league of delivery riders delivering happiness to customers and earn to achieve your dreams while at it.",
+      image: ScrapShearingMachine,
+    },
+    {
+      title: "Forging Ring Rolling Machines",
+      description:
+        "If you are passionate about helping us achieve our goal to deliver meals seamlessly, come join the team.",
+      image: ForgingRingRollingMachines,
+    },
+    {
+      title: "Forging Ring Rolling Machines",
+      description:
+        "If you are passionate about helping us achieve our goal to deliver meals seamlessly, come join the team.",
+      image: ForgingRingRollingMachines,
+    },
+  ];
