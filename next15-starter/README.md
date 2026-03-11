@@ -78,6 +78,32 @@ Guardrails:
 - Internal redirect sanitization (no open redirects)
 - Draft fetches use WPGraphQL `asPreview` request path (`no-store`)
 
+## Generic Page Rendering
+- Route: [`app/(site)/[[...slug]]/page.tsx`](./app/(site)/[[...slug]]/page.tsx)
+- The catch-all route resolves a URI from slug segments (`/` for homepage, `/about`, `/contact`, etc.) and queries `nodeByUri` through WPGraphQL.
+- When draft mode is enabled and preview params are present, the route fetches `asPreview` content and matches preview URI before rendering.
+- Flexible content is rendered through [`src/components/blocks/BlockRenderer.tsx`](./src/components/blocks/BlockRenderer.tsx), which uses [`src/components/blocks/registry.ts`](./src/components/blocks/registry.ts) to map ACF layout keys to typed block components.
+- Editors manage page sections in WordPress using ACF Flexible Content (`pageBuilder.blocks`); each layout key (for example `hero_showcase`, `stats_band`, `contact_form_split`) maps to one reusable Next.js block component.
+- Expected initial editor compositions:
+  - Home: `hero_showcase`, `stats_band`, `logo_marquee`, `category_cards_grid`, `awards_grid`, `testimonials_slider`, `contact_form_split`
+  - About: `page_intro` or `hero_showcase`, `split_content_media`, `feature_cards_grid`, `service_rows_alternating`, `awards_grid`, `cta_banner`
+  - Contact: `page_intro`, `contact_form_split`
+- Unknown or unmapped flexible layouts do not crash the page; they render a safe fallback notice.
+
+## Product System
+- Product CPT route: [`app/(site)/products/[slug]/page.tsx`](./app/(site)/products/[slug]/page.tsx)
+  - Fetches product by slug from WPGraphQL, supports draft preview, renders hero/overview/tabs/related/other-categories, and builds metadata from product SEO with global SEO fallback.
+- Product Category route: [`app/(site)/product-category/[slug]/page.tsx`](./app/(site)/product-category/[slug]/page.tsx)
+  - Fetches taxonomy term by slug, renders archive hero + product grid, and switches to service-only empty state when `isServiceCategory` is enabled.
+- Related products behavior:
+  - Priority 1: manual `relatedProducts` override in product ACF.
+  - Priority 2: fallback query for related override.
+  - Priority 3: same-category products (excluding current product).
+- Expected ACF/WPGraphQL product fields (`productFields`):
+  - `tagline`, `introDescription`/`summary`, `videoUrl`, `gallery`, `benefits`, `specifications`, `applicationMaterials`, `applicationIndustries`, `cta`, `ctaLabel`, `ctaUrl`, `relatedProducts`.
+- Expected ACF/WPGraphQL product category fields (`taxonomyFields`):
+  - `cardImage`, `archiveHeroImage`/`heroImage`, `shortDescription`, `archiveIntro`/`intro`, `cta`, `ctaLabel`, `ctaUrl`, `isServiceCategory`, `emptyStateHeading`, `emptyStateText`.
+
 ## Contact Route Behavior
 Endpoint: `POST /api/contact`
 

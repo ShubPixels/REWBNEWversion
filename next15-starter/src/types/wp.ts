@@ -60,6 +60,10 @@ export interface WpRawPromoModalOptions {
 export interface WpRawFlexibleBlock {
   __typename?: Maybe<string>;
   fieldGroupName?: Maybe<string>;
+  acfFcLayout?: Maybe<string>;
+  acf_fc_layout?: Maybe<string>;
+  layout?: Maybe<string>;
+  layoutName?: Maybe<string>;
   [key: string]: unknown;
 }
 
@@ -69,6 +73,9 @@ export interface WpRawPageBuilder {
 
 export interface WpRawProductFields {
   summary?: Maybe<string>;
+  introDescription?: Maybe<string>;
+  intro?: Maybe<string>;
+  description?: Maybe<string>;
   tagline?: Maybe<string>;
   benefits?: Maybe<Array<Maybe<string>>>;
   videoUrl?: Maybe<string>;
@@ -92,6 +99,10 @@ export interface WpRawProductFields {
   gallery?: Maybe<{
     nodes?: Maybe<Array<Maybe<WpRawMediaItem>>>;
   }>;
+  cta?: Maybe<WpRawLinkField>;
+  ctaLabel?: Maybe<string>;
+  ctaUrl?: Maybe<string>;
+  ctaTarget?: Maybe<string>;
   relatedProducts?: Maybe<{
     nodes?: Maybe<Array<Maybe<WpRawProduct>>>;
   }>;
@@ -99,8 +110,19 @@ export interface WpRawProductFields {
 }
 
 export interface WpRawTaxonomyFields {
+  shortDescription?: Maybe<string>;
+  cardImage?: Maybe<WpRawMediaItem>;
   intro?: Maybe<string>;
+  archiveIntro?: Maybe<string>;
+  archiveHeroImage?: Maybe<WpRawMediaItem>;
   heroImage?: Maybe<WpRawMediaItem>;
+  cta?: Maybe<WpRawLinkField>;
+  ctaLabel?: Maybe<string>;
+  ctaUrl?: Maybe<string>;
+  ctaTarget?: Maybe<string>;
+  isServiceCategory?: Maybe<boolean>;
+  emptyStateHeading?: Maybe<string>;
+  emptyStateText?: Maybe<string>;
   blocks?: Maybe<Array<Maybe<WpRawFlexibleBlock>>>;
   [key: string]: unknown;
 }
@@ -343,6 +365,7 @@ export interface WpMenuData {
 export interface WpPageBlock {
   type: string;
   fieldGroupName: string | null;
+  layoutKey: string | null;
   raw: Record<string, unknown>;
 }
 
@@ -380,11 +403,13 @@ export interface WpProductCardData {
 
 export interface WpProductFieldsData {
   summary: string;
+  introDescription: string;
   tagline: string;
   benefits: string[];
   videoUrl: string | null;
   specifications: WpProductSpecification[];
   applications: WpProductApplicationsData;
+  cta: WpLink | null;
   relatedProductsOverride: WpProductCardData[];
   gallery: WpMedia[];
   raw: Record<string, unknown>;
@@ -396,6 +421,11 @@ export interface WpProductCategorySummaryData {
   slug: string;
   uri: string;
   name: string;
+  description: string;
+  shortDescription: string;
+  cardImage: WpMedia | null;
+  cta: WpLink | null;
+  isServiceCategory: boolean;
 }
 
 export interface WpProductData extends WpPageData {
@@ -410,9 +440,17 @@ export interface WpProductCategoryData {
   uri: string;
   name: string;
   description: string;
+  shortDescription: string;
   seo: WpSeo | null;
   intro: string;
+  archiveIntro: string;
   heroImage: WpMedia | null;
+  archiveHeroImage: WpMedia | null;
+  cardImage: WpMedia | null;
+  cta: WpLink | null;
+  isServiceCategory: boolean;
+  emptyStateHeading: string;
+  emptyStateText: string;
   blocks: WpPageBlock[];
   products: WpProductCardData[];
 }

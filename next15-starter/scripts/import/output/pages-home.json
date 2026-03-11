@@ -1,0 +1,296 @@
+{
+  "slug": "home",
+  "title": "Home",
+  "uri": "/",
+  "flexibleBlocks": [
+    {
+      "blockKey": "hero_showcase",
+      "data": {
+        "title": "REIMAGINING WASTE, REENGINEERING THE FUTURE",
+        "description": "Empowering Industries with Advanced Engineering Solutions",
+        "primaryCta": {
+          "label": "Our Machines",
+          "url": "/category-page"
+        },
+        "secondaryCta": {
+          "label": "Watch Video",
+          "url": "https://www.youtube.com/@RanganiEngineeringPvtLtd"
+        }
+      }
+    },
+    {
+      "blockKey": "stats_band",
+      "data": {
+        "title": "Operational Impact",
+        "stats": [
+          {
+            "label": "Unique Clients",
+            "value": 6000,
+            "suffix": "+"
+          },
+          {
+            "label": "Countries Served",
+            "value": 15,
+            "suffix": "+"
+          },
+          {
+            "label": "Years of Experience",
+            "value": 30,
+            "suffix": "+"
+          }
+        ]
+      }
+    },
+    {
+      "blockKey": "logo_marquee",
+      "data": {
+        "title": "Trusted by Industry Leaders",
+        "logos": [
+          {
+            "name": "home-partner-logo-1",
+            "logo": {
+              "sourcePath": "../images/toyota.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-2",
+            "logo": {
+              "sourcePath": "../images/tata.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-3",
+            "logo": {
+              "sourcePath": "../images/pepsi.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-4",
+            "logo": {
+              "sourcePath": "../images/mahindra.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-5",
+            "logo": {
+              "sourcePath": "../images/essar.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-6",
+            "logo": {
+              "sourcePath": "../images/bajaj.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-7",
+            "logo": {
+              "sourcePath": "../images/laval.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-8",
+            "logo": {
+              "sourcePath": "../images/kohler.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-9",
+            "logo": {
+              "sourcePath": "../images/Hero MotoCorp logo.jpeg"
+            }
+          },
+          {
+            "name": "home-partner-logo-10",
+            "logo": {
+              "sourcePath": "../images/adani.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-11",
+            "logo": {
+              "sourcePath": "../images/ambuja-logo-png_seeklogo-434902.png"
+            }
+          },
+          {
+            "name": "home-partner-logo-12",
+            "logo": {
+              "sourcePath": "../images/orient.png"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "blockKey": "category_cards_grid",
+      "data": {
+        "title": "Our Wide Range of Categories",
+        "cards": [
+          {
+            "title": "Waste Management",
+            "description": "Our waste-management products with high hydraulic power and efficient engineering empowers scrap and waste management industries. From high-density balers and drum crushers to shredders and compactors, our machines cut disposal costs, boost recycling yields, and help clients meet environmental compliance targets while advancing their sustainability commitments and CSR. We empower the metal recycling industry worldwide.",
+            "image": {
+              "sourcePath": "../images/3 Action Scrap Baling Press.png"
+            },
+            "link": {
+              "label": "More Machines",
+              "url": "/category-page?category=Waste%20Management"
+            }
+          },
+          {
+            "title": "Industrial Machines",
+            "description": "Our industrial-machine portfolio covers various industries, from forging, machining sheet metal works, etc. Heavy-tonnage hydraulic presses, precision trimming machines, ring rollers, number punchers, etc are engineered for continuous duty, and low maintenance. Each solution integrates energy-efficient hydraulics. We empower industrial manufacturing companies, strengthening their operations.",
+            "image": {
+              "sourcePath": "../images/PHOTO EDIT 21.png"
+            },
+            "link": {
+              "label": "More Machines",
+              "url": "/category-page?category=Industrial%20Machines"
+            }
+          },
+          {
+            "title": "Special Purpose Machines",
+            "description": "When standard equipment can’t meet your process, we design and build special-purpose machines that do. Our expertise in industrial automation powered by hydraulics and electrical systems, we will engineer a product that fits your constraints. We will understand your requirements, and facilitate special features in our robust design, ready to ship within 3 to 6 months*.",
+            "image": {
+              "sourcePath": "../images/DIPIPE.webp"
+            },
+            "link": {
+              "label": "More Machines",
+              "url": "/category-page?category=Special%20Purpose%20Machines"
+            }
+          },
+          {
+            "title": "Manufacturing Services",
+            "description": "We manufacture industrial products that can be forged or casted, our cross-holded partner SBUs specialise in industrial components. We have been exporting for 20+ years and follow strict quality, ensuring that every component meets specification, schedule, and cost goals while exceeding client expectations.",
+            "image": {
+              "sourcePath": "../images/manufaclogo_CTP.png"
+            },
+            "link": {
+              "label": "More Machines",
+              "url": "/category-page?category=Manufacturing%20Services"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "blockKey": "awards_grid",
+      "data": {
+        "title": "Our Achievements",
+        "awards": [
+          {
+            "title": "'Star Performer'",
+            "image": {
+              "sourcePath": "../images/Awards.jpg"
+            }
+          },
+          {
+            "title": "'National Rattan Award'",
+            "image": {
+              "sourcePath": "../images/DSC_0023.JPG"
+            }
+          },
+          {
+            "title": "'Pride Of India'",
+            "image": {
+              "sourcePath": "../images/DSC_0022.JPG"
+            }
+          },
+          {
+            "title": "'IOBRD-2007'",
+            "image": {
+              "sourcePath": "../images/DSC_0020.JPG"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "blockKey": "testimonials_slider",
+      "data": {
+        "title": "Experiences That Matter",
+        "autoplayMs": 4000,
+        "testimonials": [
+          {
+            "quote": "Started with one Rangani hydraulic scrap baler on our Nashik line; cycle time on off-cuts fell 55%. The press’s rugged ram handles oily stampings without stoppage, so forklift runs dropped to once per shift. We now run eleven identical units across all vehicle plants, standardised in our TPM playbook. Scrap resale value climbed, landfill tonnes crashed, ticking both margin and CSR boxes. Service calls are rare, but their techs plug straight into our SAP PM system for spares",
+            "author": "Rahul Mehta",
+            "role": "Operations Manager",
+            "company": "Mahindra & Mahindra",
+            "avatar": {
+              "sourcePath": "../images/mahindra.png"
+            }
+          },
+          {
+            "quote": "We needed a baler that fit our compact ‘Toyota Production System’ cell, not a bulky randomised sized frame. Rangani’s team rebuilt the platen, added poka-yoke sensors, and wrote a JIS-compliant PLC routine in three months. The custom low-height hopper slides under our press shop conveyor without layout change. OEE jumped four points, with zero containment alerts since commissioning. They’re now on our ‘A-rank’ vendor list—one of the very few in India.",
+            "author": "Ally Masi",
+            "role": "Director of Industries Events Marketing",
+            "company": "Toyota Kirloskar Auto Parts Pvt. Ltd.",
+            "avatar": {
+              "sourcePath": "../images/toyota.png"
+            }
+          },
+          {
+            "quote": "Defect scrap—scale, sand, and odd shapes—was piling up beside our DI pipe mill. Rangani co-engineered a heavy-duty shredder with rotary dirt separators and over-belt magnet in one skid. Now we reclaim clean metal chips ready for the melt shop, cutting virgin charge by 8%. We could reuse the material on further operations, improving margins. Seeing the payback, we’ve budgeted two more lines and are planning to include Rangani in other areas.",
+            "author": "Welspun Group",
+            "role": "__MISSING__",
+            "company": "Welspun Group",
+            "avatar": {
+              "sourcePath": "../images/welspun logo.png"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "blockKey": "contact_form_split",
+      "data": {
+        "title": "Connect With Us",
+        "description": "Send us your project details and our team will respond.",
+        "formTitle": "Connect With Us",
+        "submitLabel": "Submit Now",
+        "submitPendingLabel": "Sending...",
+        "successMessage": "Your message has been sent successfully!",
+        "errorMessage": "Please fill in all required fields.",
+        "categoryPlaceholder": "Select Category",
+        "termsLabel": "Agree to our terms and conditions",
+        "categories": [
+          "General Inquiry",
+          "Support",
+          "Feedback"
+        ],
+        "labels": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone",
+          "company": "Company Name",
+          "category": "Category",
+          "message": "Your Message"
+        },
+        "sidebar": {
+          "title": "Happy to Help",
+          "phoneLabel": "Phone",
+          "emailLabel": "Email",
+          "addressLabel": "Address",
+          "mapButtonLabel": "Get Directions"
+        },
+        "contactEmail": "mail@ranganiindia.com",
+        "contactPhone": "Mobile: +91-8000920222 - Milan Rangani",
+        "contactAddress": "Survey No. 258, Plot No. 5 To 11, NH-8B, Gondal Road, Near Priyesh Cotton, Shapar, Rajkot-360024, Gujarat, India.",
+        "mapLink": {
+          "label": "Get Directions",
+          "url": "https://maps.app.goo.gl/8QFjE7BRMg3AC63E9",
+          "target": "_blank"
+        }
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "Home | Rangani Engineering",
+    "metaDescription": "Legacy home page content normalized for WordPress flexible content import."
+  },
+  "sourceFiles": [
+    "../src/pages/HomePage.jsx",
+    "../src/Components/Navbar.js",
+    "../src/App.js"
+  ]
+}

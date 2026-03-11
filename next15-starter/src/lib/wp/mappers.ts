@@ -40,6 +40,7 @@ import type {
   WpRawProductCategory,
   WpRawProductCategorySummary,
   WpRawSeoFields,
+  WpRawTaxonomyFields,
   WpSeo,
 } from "@/types/wp";
 
@@ -115,6 +116,33 @@ export function mapWpLink(link: Maybe<WpRawLinkField>): WpLink | null {
   return { label, url, target };
 }
 
+function mapWpCta(
+  fields:
+    | Maybe<{
+        cta?: Maybe<WpRawLinkField>;
+        ctaLabel?: Maybe<string>;
+        ctaUrl?: Maybe<string>;
+        ctaTarget?: Maybe<string>;
+      }>
+    | undefined,
+): WpLink | null {
+  const mappedLink = mapWpLink(fields?.cta);
+  if (mappedLink) {
+    return mappedLink;
+  }
+
+  const url = stringOrEmpty(fields?.ctaUrl).trim();
+  if (!url) {
+    return null;
+  }
+
+  return {
+    label: stringOrEmpty(fields?.ctaLabel).trim() || "Learn more",
+    url,
+    target: nullableString(fields?.ctaTarget),
+  };
+}
+
 export function mapWpSeo(seo: Maybe<WpRawSeoFields>): WpSeo | null {
   if (!seo) {
     return null;
@@ -140,6 +168,12 @@ function mapWpBlocks(blocks: Maybe<Array<Maybe<WpRawFlexibleBlock>>>): WpPageBlo
   return blocks
     .filter((block): block is WpRawFlexibleBlock => Boolean(block))
     .map((block, index) => {
+      const layoutKey =
+        nullableString(block.acfFcLayout) ??
+        nullableString(block.acf_fc_layout) ??
+        nullableString(block.layout) ??
+        nullableString(block.layoutName);
+
       const rawBlock: Record<string, unknown> = {};
       Object.entries(block).forEach(([key, value]) => {
         if (key === "__typename" || key === "fieldGroupName") {
@@ -151,6 +185,7 @@ function mapWpBlocks(blocks: Maybe<Array<Maybe<WpRawFlexibleBlock>>>): WpPageBlo
       return {
         type: block.__typename ?? `UnknownBlock_${index}`,
         fieldGroupName: nullableString(block.fieldGroupName),
+        layoutKey,
         raw: rawBlock,
       };
     });
@@ -198,6 +233,11 @@ function mapWpProductCategorySummary(
     slug,
     uri,
     name: stringOrEmpty(raw.name),
+    description: stringOrEmpty(raw.description),
+    shortDescription: stringOrEmpty(raw.taxonomyFields?.shortDescription),
+    cardImage: mapWpMedia(raw.taxonomyFields?.cardImage),
+    cta: mapWpCta(raw.taxonomyFields),
+    isServiceCategory: boolOrFalse(raw.taxonomyFields?.isServiceCategory),
   };
 }
 
@@ -283,6 +323,25 @@ function mapStringList(values: Maybe<Array<Maybe<string>>>): string[] {
     .filter((value) => value.length > 0);
 }
 
+function mapProductIntroDescription(rawFields: Maybe<WpRawProductFields>): string {
+  const introDescription = stringOrEmpty(rawFields?.introDescription);
+  if (introDescription.trim().length > 0) {
+    return introDescription;
+  }
+
+  const summary = stringOrEmpty(rawFields?.summary);
+  if (summary.trim().length > 0) {
+    return summary;
+  }
+
+  const intro = stringOrEmpty(rawFields?.intro);
+  if (intro.trim().length > 0) {
+    return intro;
+  }
+
+  return stringOrEmpty(rawFields?.description);
+}
+
 function mapUnknownStringList(value: unknown): string[] {
   return asArray(value)
     .map((item) => (typeof item === "string" ? item.trim() : ""))
@@ -331,6 +390,7 @@ export function mapWpProduct(product: Maybe<WpRawProduct>): WpProductData | null
   }
 
   const rawFields = product?.productFields;
+  const introDescription = mapProductIntroDescription(rawFields);
   const rawGallery = rawFields?.gallery?.nodes ?? [];
   const gallery = rawGallery
     .map((item) => mapWpMedia(item))
@@ -344,12 +404,14 @@ export function mapWpProduct(product: Maybe<WpRawProduct>): WpProductData | null
     ...page,
     categories,
     product: {
-      summary: stringOrEmpty(rawFields?.summary),
+      summary: stringOrEmpty(rawFields?.summary) || introDescription,
+      introDescription,
       tagline: stringOrEmpty(rawFields?.tagline),
       benefits: mapStringList(rawFields?.benefits),
       videoUrl: nullableString(rawFields?.videoUrl),
       specifications: mapSpecifications(rawFields?.specifications),
       applications: mapApplications(rawFields),
+      cta: mapWpCta(rawFields),
       relatedProductsOverride: mapRelatedProductsOverride(rawFields),
       gallery,
       raw: rawFields ? { ...rawFields } : {},
@@ -364,6 +426,10 @@ export function mapWpProductCategory(category: Maybe<WpRawProductCategory>): WpP
     return null;
   }
 
+  const taxonomyFields: Maybe<WpRawTaxonomyFields> = category.taxonomyFields;
+  const archiveIntro = stringOrEmpty(taxonomyFields?.archiveIntro) || stringOrEmpty(taxonomyFields?.intro);
+  const archiveHeroImage = mapWpMedia(taxonomyFields?.archiveHeroImage) ?? mapWpMedia(taxonomyFields?.heroImage);
+
   const products = (category.products?.nodes ?? [])
     .map((item) => mapWpProductCard(item))
     .filter((item): item is WpProductCardData => item !== null);
@@ -375,10 +441,18 @@ export function mapWpProductCategory(category: Maybe<WpRawProductCategory>): WpP
     uri: stringOrEmpty(category.uri),
     name: stringOrEmpty(category.name),
     description: stringOrEmpty(category.description),
+    shortDescription: stringOrEmpty(taxonomyFields?.shortDescription),
     seo: mapWpSeo(category.seoFields),
-    intro: stringOrEmpty(category.taxonomyFields?.intro),
-    heroImage: mapWpMedia(category.taxonomyFields?.heroImage),
-    blocks: mapWpBlocks(category.taxonomyFields?.blocks),
+    intro: archiveIntro,
+    archiveIntro,
+    heroImage: archiveHeroImage,
+    archiveHeroImage,
+    cardImage: mapWpMedia(taxonomyFields?.cardImage),
+    cta: mapWpCta(taxonomyFields),
+    isServiceCategory: boolOrFalse(taxonomyFields?.isServiceCategory),
+    emptyStateHeading: stringOrEmpty(taxonomyFields?.emptyStateHeading),
+    emptyStateText: stringOrEmpty(taxonomyFields?.emptyStateText),
+    blocks: mapWpBlocks(taxonomyFields?.blocks),
     products,
   };
 }

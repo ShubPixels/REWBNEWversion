@@ -1,0 +1,160 @@
+{
+  "site_name": "RANGANI ENGINEERING PVT LTD",
+  "site_tagline": "Empowering Industries with Advanced Engineering Solutions",
+  "header_options": {
+    "logo_path": "../images/logo.png",
+    "links": [
+      {
+        "label": "Home",
+        "url": "/"
+      },
+      {
+        "label": "About",
+        "url": "/about"
+      },
+      {
+        "label": "Contact",
+        "url": "/contact"
+      }
+    ]
+  },
+  "footer_options": {
+    "links": [
+      {
+        "label": "__MISSING__",
+        "url": "__MISSING__"
+      }
+    ]
+  },
+  "contact_social_options": {
+    "contact_email": "mail@ranganiindia.com",
+    "contact_phone": "Mobile: +91-8000920222 - Milan Rangani",
+    "contact_address": "Survey No. 258, Plot No. 5 To 11, NH-8B, Gondal Road, Near Priyesh Cotton, Shapar, Rajkot-360024, Gujarat, India.",
+    "social_links": [
+      {
+        "label": "YouTube",
+        "url": "https://www.youtube.com/@RanganiEngineeringPvtLtd"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/rangani_engineering_pvt_ltd"
+      },
+      {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/people/Rangani-Engineering-Pvt-Ltd/100063895899990/"
+      }
+    ]
+  },
+  "brochure_download_links": [
+    {
+      "label": "Get Brochure",
+      "url": "/Rangani Brochure.pdf"
+    }
+  ],
+  "promo_modal": {
+    "enabled": true,
+    "delay_ms": 5000,
+    "auto_rotate_ms": 3000,
+    "slides": [
+      {
+        "image": "./images/promo1.jpg",
+        "heading": "Promo Slide 1",
+        "description": "__MISSING__",
+        "cta_label": "__MISSING__",
+        "cta_url": "__MISSING__"
+      },
+      {
+        "image": "./images/promo2.jpg",
+        "heading": "Promo Slide 2",
+        "description": "__MISSING__",
+        "cta_label": "__MISSING__",
+        "cta_url": "__MISSING__"
+      }
+    ]
+  },
+  "shared_credibility": {
+    "awards": [
+      {
+        "title": "'Star Performer'",
+        "image": "../images/Awards.jpg"
+      },
+      {
+        "title": "'National Rattan Award'",
+        "image": "../images/DSC_0023.JPG"
+      },
+      {
+        "title": "'Pride Of India'",
+        "image": "../images/DSC_0022.JPG"
+      },
+      {
+        "title": "'IOBRD-2007'",
+        "image": "../images/DSC_0020.JPG"
+      }
+    ],
+    "client_logos": [
+      {
+        "name": "home-partner-logo-1",
+        "image": "../images/toyota.png"
+      },
+      {
+        "name": "home-partner-logo-2",
+        "image": "../images/tata.png"
+      },
+      {
+        "name": "home-partner-logo-3",
+        "image": "../images/pepsi.png"
+      },
+      {
+        "name": "home-partner-logo-4",
+        "image": "../images/mahindra.png"
+      },
+      {
+        "name": "home-partner-logo-5",
+        "image": "../images/essar.png"
+      },
+      {
+        "name": "home-partner-logo-6",
+        "image": "../images/bajaj.png"
+      },
+      {
+        "name": "home-partner-logo-7",
+        "image": "../images/laval.png"
+      },
+      {
+        "name": "home-partner-logo-8",
+        "image": "../images/kohler.png"
+      },
+      {
+        "name": "home-partner-logo-9",
+        "image": "../images/Hero MotoCorp logo.jpeg"
+      },
+      {
+        "name": "home-partner-logo-10",
+        "image": "../images/adani.png"
+      },
+      {
+        "name": "home-partner-logo-11",
+        "image": "../images/ambuja-logo-png_seeklogo-434902.png"
+      },
+      {
+        "name": "home-partner-logo-12",
+        "image": "../images/orient.png"
+      }
+    ]
+  },
+  "seo_defaults": {
+    "meta_title": "__MISSING__",
+    "meta_description": "__MISSING__"
+  },
+  "source_files": [
+    "../src/Components/Navbar.js",
+    "../src/pages/ContactUs.jsx",
+    "../src/pages/HomePage.jsx",
+    "../src/App.js"
+  ],
+  "manual_review_fields": [
+    "footer_options.links",
+    "seo_defaults",
+    "promo_modal.slides[*].cta_url"
+  ]
+}

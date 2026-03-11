@@ -91,19 +91,28 @@ function makeCtaLink(label: string, url: string): WpLink {
   return { label, url, target: null };
 }
 
-function createProductCta(product: WpProductData, globalSettings: WpGlobalSettingsData | null): CtaBannerData {
+function createProductCta(product: WpProductData, globalSettings: WpGlobalSettingsData | null): CtaBannerData | null {
+  const primaryFromProduct = product.product.cta;
   const phone = globalSettings?.contactPhone ?? "";
   const phoneHref = normalizePhoneForTel(phone);
-  const primaryCta = phoneHref
+  const fallbackPrimaryCta = phoneHref
     ? makeCtaLink("Call Us", `tel:${phoneHref}`)
-    : makeCtaLink("Contact Us", "/contact");
+    : globalSettings?.contactEmail?.trim()
+      ? makeCtaLink("Email Us", `mailto:${globalSettings.contactEmail.trim()}`)
+      : null;
+  const primaryCta = primaryFromProduct ?? fallbackPrimaryCta;
 
   const secondaryCta =
-    globalSettings?.contactEmail?.trim()
+    globalSettings?.contactEmail?.trim() && primaryCta?.url !== `mailto:${globalSettings.contactEmail.trim()}`
       ? makeCtaLink("Email Us", `mailto:${globalSettings.contactEmail.trim()}`)
       : null;
 
-  const fallbackDescription = product.product.summary || product.excerpt || siteConfig.description;
+  if (!primaryCta) {
+    return null;
+  }
+
+  const fallbackDescription =
+    product.product.introDescription || product.product.summary || product.excerpt || siteConfig.description;
 
   return {
     title: `Discuss your ${product.title} requirements`,
@@ -285,6 +294,7 @@ export async function generateMetadata({ params, searchParams }: ProductRoutePro
 
   const fallbackTitle = product?.title || globalSettings?.siteTitle || globalSettings?.siteName || siteConfig.name;
   const fallbackDescription =
+    product?.product.introDescription ||
     product?.product.summary ||
     product?.excerpt ||
     globalSettings?.siteDescription ||
@@ -321,7 +331,7 @@ export default async function ProductPage({ params, searchParams }: ProductRoute
   const [relatedProducts] = await Promise.all([resolveRelatedProducts(product)]);
   const otherCategories = selectOtherCategories(allCategories, product.categories);
   const heroImage = product.featuredImage ?? product.product.gallery[0] ?? null;
-  const productSummary = product.product.summary || product.excerpt;
+  const productSummary = product.product.introDescription || product.product.summary || product.excerpt;
   const ctaData = createProductCta(product, globalSettings);
 
   return (
@@ -335,7 +345,7 @@ export default async function ProductPage({ params, searchParams }: ProductRoute
       />
 
       <ProductOverview
-        summary={productSummary}
+        introDescription={productSummary}
         videoUrl={product.product.videoUrl}
         gallery={product.product.gallery}
       />
@@ -348,7 +358,7 @@ export default async function ProductPage({ params, searchParams }: ProductRoute
 
       <RelatedProducts products={relatedProducts} />
       <OtherCategories categories={otherCategories} />
-      <CtaBanner data={ctaData} blockId="product-cta-banner" />
+      {ctaData ? <CtaBanner data={ctaData} blockId="product-cta-banner" /> : null}
     </>
   );
 }

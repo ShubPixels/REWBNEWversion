@@ -2,13 +2,13 @@ import Image from "next/image";
 import type { WpMedia } from "@/types/wp";
 
 export interface ProductOverviewProps {
-  summary: string;
+  introDescription: string;
   gallery: WpMedia[];
   videoUrl: string | null;
 }
 
-export default function ProductOverview({ summary, gallery, videoUrl }: ProductOverviewProps) {
-  const hasContent = summary.trim().length > 0 || gallery.length > 0 || Boolean(videoUrl);
+export default function ProductOverview({ introDescription, gallery, videoUrl }: ProductOverviewProps) {
+  const hasContent = introDescription.trim().length > 0 || gallery.length > 0 || Boolean(videoUrl);
   if (!hasContent) {
     return null;
   }
@@ -18,7 +18,7 @@ export default function ProductOverview({ summary, gallery, videoUrl }: ProductO
       <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">Overview</h2>
-          {summary ? <p className="mt-4 text-sm leading-7 text-slate-700">{summary}</p> : null}
+          {introDescription ? <p className="mt-4 text-sm leading-7 text-slate-700">{introDescription}</p> : null}
           {videoUrl ? (
             <a
               href={videoUrl}

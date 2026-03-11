@@ -1,0 +1,63 @@
+{
+  "slug": "contact",
+  "title": "Contact",
+  "uri": "/contact",
+  "flexibleBlocks": [
+    {
+      "blockKey": "page_intro",
+      "data": {
+        "title": "Connect <span className=\"text-teal-500\">With Us</span>",
+        "description": "Reach out for technical support and sales inquiries."
+      }
+    },
+    {
+      "blockKey": "contact_form_split",
+      "data": {
+        "title": "Connect <span className=\"text-teal-500\">With Us</span>",
+        "description": "24/7 service support and technical assistance.",
+        "formTitle": "Connect <span className=\"text-teal-500\">With Us</span>",
+        "submitLabel": "Submit Now",
+        "submitPendingLabel": "Sending...",
+        "successMessage": "Thank you! Your message has been sent.",
+        "errorMessage": "You must agree to the terms and conditions.",
+        "categoryPlaceholder": "Select Category",
+        "termsLabel": "I agree to the terms and conditions",
+        "categories": [
+          "General Inquiry",
+          "Support",
+          "Feedback"
+        ],
+        "labels": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone",
+          "company": "Company",
+          "category": "Category",
+          "message": "Your Message"
+        },
+        "sidebar": {
+          "title": "Happy to Help",
+          "phoneLabel": "Phone",
+          "emailLabel": "Email",
+          "addressLabel": "Address",
+          "mapButtonLabel": "Get Directions"
+        },
+        "contactEmail": "mail@ranganiindia.com",
+        "contactPhone": "Mobile: +91-8000920222 - Milan Rangani",
+        "contactAddress": "Survey No. 258, Plot No. 5 To 11, NH-8B, Gondal Road, Near Priyesh Cotton, Shapar, Rajkot-360024, Gujarat, India.",
+        "mapLink": {
+          "label": "Get Directions",
+          "url": "https://maps.app.goo.gl/8QFjE7BRMg3AC63E9",
+          "target": "_blank"
+        }
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "Contact | Rangani Engineering",
+    "metaDescription": "Legacy Contact page content normalized for WordPress flexible content import."
+  },
+  "sourceFiles": [
+    "../src/pages/ContactUs.jsx"
+  ]
+}

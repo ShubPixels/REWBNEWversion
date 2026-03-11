@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import BlockRenderer from "@/components/blocks/BlockRenderer";
 import CtaBanner, { type CtaBannerData } from "@/components/blocks/CtaBanner";
 import OtherCategories from "@/components/product/OtherCategories";
-import RelatedProducts from "@/components/product/RelatedProducts";
+import ProductCategoryHero from "@/components/product/ProductCategoryHero";
+import ProductGrid from "@/components/product/ProductGrid";
 import { siteConfig } from "@/config/site";
 import { WP_REVALIDATE_SECONDS, WP_TAGS } from "@/lib/wp/cache";
 import { wpFetch } from "@/lib/wp/fetcher";
@@ -84,19 +84,28 @@ function makeCtaLink(label: string, url: string): WpLink {
 function createCategoryCta(
   category: WpProductCategoryData,
   globalSettings: WpGlobalSettingsData | null,
-): CtaBannerData {
+): CtaBannerData | null {
+  const primaryFromCategory = category.cta;
   const phone = globalSettings?.contactPhone ?? "";
   const phoneHref = normalizePhoneForTel(phone);
-  const primaryCta = phoneHref
+  const fallbackPrimaryCta = phoneHref
     ? makeCtaLink("Call Us", `tel:${phoneHref}`)
-    : makeCtaLink("Contact Us", "/contact");
+    : globalSettings?.contactEmail?.trim()
+      ? makeCtaLink("Email Us", `mailto:${globalSettings.contactEmail.trim()}`)
+      : null;
+  const primaryCta = primaryFromCategory ?? fallbackPrimaryCta;
 
   const secondaryCta =
-    globalSettings?.contactEmail?.trim()
+    globalSettings?.contactEmail?.trim() && primaryCta?.url !== `mailto:${globalSettings.contactEmail.trim()}`
       ? makeCtaLink("Email Us", `mailto:${globalSettings.contactEmail.trim()}`)
       : null;
 
-  const fallbackDescription = category.intro || category.description || siteConfig.description;
+  if (!primaryCta) {
+    return null;
+  }
+
+  const fallbackDescription =
+    category.archiveIntro || category.shortDescription || category.description || siteConfig.description;
 
   return {
     title: `Need guidance for ${category.name}?`,
@@ -211,7 +220,8 @@ export async function generateMetadata({ params, searchParams }: ProductCategory
   const fallbackTitle =
     category?.name || globalSettings?.siteTitle || globalSettings?.siteName || siteConfig.name;
   const fallbackDescription =
-    category?.intro ||
+    category?.archiveIntro ||
+    category?.shortDescription ||
     category?.description ||
     globalSettings?.siteDescription ||
     globalSettings?.siteTagline ||
@@ -248,55 +258,47 @@ export default async function ProductCategoryPage({ params, searchParams }: Prod
 
   const otherCategories = selectOtherCategories(allCategories, category);
   const ctaData = createCategoryCta(category, globalSettings);
+  const isServiceCategory = category.isServiceCategory;
+  const emptyStateHeading = category.emptyStateHeading || "Service Category";
+  const emptyStateText =
+    category.emptyStateText ||
+    "This category is configured as service-only and currently has no product entries.";
+  const archiveIntro = category.archiveIntro || category.intro;
+  const archiveHeroImage = category.archiveHeroImage ?? category.heroImage;
+  const heroDescription = category.shortDescription || category.description;
 
   return (
     <>
-      <section className="border-b border-slate-200 bg-slate-50">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 md:grid-cols-2 md:items-center md:py-16">
-          <div>
-            <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl">{category.name}</h1>
-            {category.intro ? <p className="mt-4 text-lg text-slate-700">{category.intro}</p> : null}
-            {category.description ? <p className="mt-5 text-sm leading-7 text-slate-600">{category.description}</p> : null}
-          </div>
+      <ProductCategoryHero
+        name={category.name}
+        intro={archiveIntro}
+        description={heroDescription}
+        heroImage={archiveHeroImage}
+        cta={category.cta}
+        isServiceCategory={isServiceCategory}
+      />
 
-          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
-            {category.heroImage ? (
-              <Image
-                src={category.heroImage.url}
-                alt={category.heroImage.alt || category.name}
-                width={category.heroImage.width ?? 1200}
-                height={category.heroImage.height ?? 900}
-                className="h-full w-full object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-            ) : (
-              <div className="flex min-h-72 items-center justify-center bg-slate-100 p-8 text-sm text-slate-500">
-                Category image coming soon.
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {category.products.length > 0 ? (
-        <RelatedProducts products={category.products} title={`${category.name} Products`} />
-      ) : (
+      {isServiceCategory ? (
         <section className="mx-auto w-full max-w-7xl px-4 py-12 md:py-16">
           <div className="rounded-2xl border border-slate-200 bg-white p-8">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Service Category</h2>
-            <p className="mt-3 text-sm leading-7 text-slate-600">
-              This category is currently configured without product entries. Use the flexible content blocks and CTA
-              sections to present service content for this taxonomy.
-            </p>
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900">{emptyStateHeading}</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-600">{emptyStateText}</p>
           </div>
         </section>
+      ) : (
+        <ProductGrid
+          title={`${category.name} Products`}
+          description={archiveIntro}
+          products={category.products}
+          emptyHeading={`No ${category.name} products yet`}
+          emptyText="This category currently has no products assigned."
+        />
       )}
 
       {category.blocks.length > 0 ? <BlockRenderer blocks={category.blocks} /> : null}
 
       <OtherCategories categories={otherCategories} />
-      <CtaBanner data={ctaData} blockId="category-cta-banner" />
+      {ctaData ? <CtaBanner data={ctaData} blockId="category-cta-banner" /> : null}
     </>
   );
 }

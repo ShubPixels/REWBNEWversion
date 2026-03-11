@@ -1,0 +1,1971 @@
+{
+  "generatedAt": "2026-03-11T13:22:08.179Z",
+  "home": {
+    "heroTitle": "REIMAGINING WASTE, REENGINEERING THE FUTURE",
+    "heroDescription": "Empowering Industries with Advanced Engineering Solutions",
+    "heroPrimaryLabel": "Our Machines",
+    "heroPrimaryUrl": "/category-page",
+    "heroSecondaryLabel": "Watch Video",
+    "heroSecondaryUrl": "https://www.youtube.com/@RanganiEngineeringPvtLtd",
+    "stats": [
+      {
+        "key": "clients",
+        "label": "Unique Clients",
+        "value": 6000,
+        "suffix": "+"
+      },
+      {
+        "key": "countries",
+        "label": "Countries Served",
+        "value": 15,
+        "suffix": "+"
+      },
+      {
+        "key": "years",
+        "label": "Years of Experience",
+        "value": 30,
+        "suffix": "+"
+      }
+    ],
+    "partnerLogos": [
+      {
+        "id": "home-partner-logo-1",
+        "sourcePath": "../images/toyota.png"
+      },
+      {
+        "id": "home-partner-logo-2",
+        "sourcePath": "../images/tata.png"
+      },
+      {
+        "id": "home-partner-logo-3",
+        "sourcePath": "../images/pepsi.png"
+      },
+      {
+        "id": "home-partner-logo-4",
+        "sourcePath": "../images/mahindra.png"
+      },
+      {
+        "id": "home-partner-logo-5",
+        "sourcePath": "../images/essar.png"
+      },
+      {
+        "id": "home-partner-logo-6",
+        "sourcePath": "../images/bajaj.png"
+      },
+      {
+        "id": "home-partner-logo-7",
+        "sourcePath": "../images/laval.png"
+      },
+      {
+        "id": "home-partner-logo-8",
+        "sourcePath": "../images/kohler.png"
+      },
+      {
+        "id": "home-partner-logo-9",
+        "sourcePath": "../images/Hero MotoCorp logo.jpeg"
+      },
+      {
+        "id": "home-partner-logo-10",
+        "sourcePath": "../images/adani.png"
+      },
+      {
+        "id": "home-partner-logo-11",
+        "sourcePath": "../images/ambuja-logo-png_seeklogo-434902.png"
+      },
+      {
+        "id": "home-partner-logo-12",
+        "sourcePath": "../images/orient.png"
+      }
+    ],
+    "services": [
+      {
+        "title": "Waste Management",
+        "description": "Our waste-management products with high hydraulic power and efficient engineering empowers scrap and waste management industries. From high-density balers and drum crushers to shredders and compactors, our machines cut disposal costs, boost recycling yields, and help clients meet environmental compliance targets while advancing their sustainability commitments and CSR. We empower the metal recycling industry worldwide.",
+        "image": {
+          "id": "home-service-1",
+          "sourcePath": "../images/3 Action Scrap Baling Press.png"
+        }
+      },
+      {
+        "title": "Industrial Machines",
+        "description": "Our industrial-machine portfolio covers various industries, from forging, machining sheet metal works, etc. Heavy-tonnage hydraulic presses, precision trimming machines, ring rollers, number punchers, etc are engineered for continuous duty, and low maintenance. Each solution integrates energy-efficient hydraulics. We empower industrial manufacturing companies, strengthening their operations.",
+        "image": {
+          "id": "home-service-2",
+          "sourcePath": "../images/PHOTO EDIT 21.png"
+        }
+      },
+      {
+        "title": "Special Purpose Machines",
+        "description": "When standard equipment can’t meet your process, we design and build special-purpose machines that do. Our expertise in industrial automation powered by hydraulics and electrical systems, we will engineer a product that fits your constraints. We will understand your requirements, and facilitate special features in our robust design, ready to ship within 3 to 6 months*.",
+        "image": {
+          "id": "home-service-3",
+          "sourcePath": "../images/DIPIPE.webp"
+        }
+      },
+      {
+        "title": "Manufacturing Services",
+        "description": "We manufacture industrial products that can be forged or casted, our cross-holded partner SBUs specialise in industrial components. We have been exporting for 20+ years and follow strict quality, ensuring that every component meets specification, schedule, and cost goals while exceeding client expectations.",
+        "image": {
+          "id": "home-service-4",
+          "sourcePath": "../images/manufaclogo_CTP.png"
+        }
+      }
+    ],
+    "awards": [
+      {
+        "title": "'Star Performer'",
+        "image": {
+          "id": "home-award-1",
+          "sourcePath": "../images/Awards.jpg"
+        }
+      },
+      {
+        "title": "'National Rattan Award'",
+        "image": {
+          "id": "home-award-2",
+          "sourcePath": "../images/DSC_0023.JPG"
+        }
+      },
+      {
+        "title": "'Pride Of India'",
+        "image": {
+          "id": "home-award-3",
+          "sourcePath": "../images/DSC_0022.JPG"
+        }
+      },
+      {
+        "title": "'IOBRD-2007'",
+        "image": {
+          "id": "home-award-4",
+          "sourcePath": "../images/DSC_0020.JPG"
+        }
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Rahul Mehta",
+        "company": "Mahindra & Mahindra",
+        "designation": "Operations Manager",
+        "text": "Started with one Rangani hydraulic scrap baler on our Nashik line; cycle time on off-cuts fell 55%. The press’s rugged ram handles oily stampings without stoppage, so forklift runs dropped to once per shift. We now run eleven identical units across all vehicle plants, standardised in our TPM playbook. Scrap resale value climbed, landfill tonnes crashed, ticking both margin and CSR boxes. Service calls are rare, but their techs plug straight into our SAP PM system for spares",
+        "logo": {
+          "id": "home-testimonial-1",
+          "sourcePath": "../images/mahindra.png"
+        }
+      },
+      {
+        "name": "Ally Masi",
+        "company": "Toyota Kirloskar Auto Parts Pvt. Ltd.",
+        "designation": "Director of Industries Events Marketing",
+        "text": "We needed a baler that fit our compact ‘Toyota Production System’ cell, not a bulky randomised sized frame. Rangani’s team rebuilt the platen, added poka-yoke sensors, and wrote a JIS-compliant PLC routine in three months. The custom low-height hopper slides under our press shop conveyor without layout change. OEE jumped four points, with zero containment alerts since commissioning. They’re now on our ‘A-rank’ vendor list—one of the very few in India.",
+        "logo": {
+          "id": "home-testimonial-2",
+          "sourcePath": "../images/toyota.png"
+        }
+      },
+      {
+        "name": "Welspun Group",
+        "company": "Welspun Group",
+        "designation": "",
+        "text": "Defect scrap—scale, sand, and odd shapes—was piling up beside our DI pipe mill. Rangani co-engineered a heavy-duty shredder with rotary dirt separators and over-belt magnet in one skid. Now we reclaim clean metal chips ready for the melt shop, cutting virgin charge by 8%. We could reuse the material on further operations, improving margins. Seeing the payback, we’ve budgeted two more lines and are planning to include Rangani in other areas.",
+        "logo": {
+          "id": "home-testimonial-3",
+          "sourcePath": "../images/welspun logo.png"
+        }
+      }
+    ],
+    "contactForm": {
+      "initialValues": {
+        "name": "",
+        "email": "",
+        "phone": "",
+        "company": "",
+        "country": "",
+        "state": "",
+        "city": "",
+        "category": "General Inquiry",
+        "message": "",
+        "terms": false
+      },
+      "requiredFields": [
+        "name",
+        "email",
+        "company",
+        "country",
+        "state",
+        "city"
+      ],
+      "categoryOptions": [
+        "General Inquiry",
+        "Support",
+        "Feedback"
+      ],
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company Name",
+        "country": "Country",
+        "state": "State",
+        "city": "City",
+        "category": "Category",
+        "message": "Your Message"
+      },
+      "termsLabel": "Agree to our terms and conditions",
+      "successMessage": "Your message has been sent successfully!",
+      "errorMessage": "Please fill in all required fields."
+    },
+    "contactSidebar": {
+      "title": "Happy to Help",
+      "description": "24/7 service support and technical assistance.",
+      "email": "mail@ranganiindia.com",
+      "phone": "Mobile: +91-8000920222 - Milan Rangani",
+      "address": "Survey No. 258, Plot No. 5 To 11, NH-8B, Gondal Road, Near Priyesh Cotton, Shapar, Rajkot-360024, Gujarat, India.",
+      "mapUrl": "https://maps.app.goo.gl/8QFjE7BRMg3AC63E9"
+    }
+  },
+  "about": {
+    "heroTitle": "Leading the Future: Innovating Sustainability for a Cleaner, <br className=\"hidden md:block\" /> <span className=\"text-emerald-400\">Greener World.",
+    "storyHeading": "Our Story",
+    "storyParagraphs": [
+      "Established in 1981, we have engineered over 600 unique machines, ranging from compact equipment to large-scale industrial machinery. With a client base that includes top MNCs, government entities worldwide and numerous SMEs, we deliver solutions that rein in quality, simplicity, and durability.",
+      "Our offerings encompass cutting-edge solutions for recycling, waste management, and heavy-duty industrial machinery. Driven by Hydraulics and Automation systems, we are committed to delivering engineering solutions that exceed client expectations."
+    ],
+    "storyImage": {
+      "id": "about-story-image",
+      "sourcePath": "../images/our_story.png"
+    },
+    "featureCards": [
+      {
+        "title": "Our Vision",
+        "description": "To be the world's leading provider of advanced engineering solutions, specializing in machinery that promotes sustainability and operational excellence. </motion.p> </motion.div> {/* Mission Section */} <motion.div className=",
+        "iconHint": "vision"
+      },
+      {
+        "title": "Our Mission",
+        "description": "To engineer innovative and sustainable solutions for waste management and industrial applications, providing reliable and efficient machinery to enhance operational efficiency for our clients worldwide. </motion.p> </motion.div> {/* Quality and Sustainability Section */} <motion.div className=",
+        "iconHint": "mission"
+      },
+      {
+        "title": "Quality and Sustainability",
+        "description": "Our Philosophy is simple: Build machines that last. We prioritize durability and build quality, ensuring each machine we produce withstand the test of time and environment. This emphasis on quality has landed us with multiple MNC's & government projects overseas, and are recognized as top manufacturer and exporter by government of India. </motion.p> </motion.div> </div> {/* Right Column */} <motion.div className=",
+        "iconHint": "quality"
+      }
+    ],
+    "services": [
+      {
+        "title": "Waste Management & Scrap Processing Machinery",
+        "description": "We build the muscle behind recycling industries. Our hydraulic baling presses compact scrap metal into dense, transport-ready blocks. Shredders tear through tires, e-waste, and industrial byproducts. Hydraulic breaking machines dismantle outdated components and infrastructural wastes, while scrap cutting systems slice through thick steel like butter.",
+        "image": {
+          "id": "about-service-1",
+          "sourcePath": "../images/Waste management.jpg"
+        }
+      },
+      {
+        "title": "Industrial Equipment & Heavy Machinery Solutions",
+        "description": "Our industrial equipment division designs and manufactures robust machinery for demanding environments. From custom conveyor systems to specialized processing equipment, we engineer solutions that enhance productivity while reducing operational costs. Our machines are built to withstand harsh conditions and deliver consistent performance for years of reliable service.",
+        "image": {
+          "id": "about-service-2",
+          "sourcePath": "../images/What_WE_2.png"
+        }
+      },
+      {
+        "title": "Sustainable Technologies for Eco-friendly Manufacturing",
+        "description": "We pioneer green manufacturing technologies that reduce environmental impact without compromising performance. Our energy-efficient systems minimize power consumption while maximizing output. From water recycling systems to emissions control solutions, we help industries transition to more sustainable operational models that meet increasingly stringent environmental regulations.",
+        "image": {
+          "id": "about-service-3",
+          "sourcePath": "../images/collaboration for sustainable future.png"
+        }
+      },
+      {
+        "title": "Special-Purpose Machinery & Custom Automation",
+        "description": "When off-the-shelf equipment can’t match your process, we design, prototype, and build machines that do. Whether it’s a high-speed assembly cell, a test rig for critical components, or a compact line retrofit, our team integrates hydraulics, motion control, and PLC logic to meet exact cycle-time and quality targets. Each project is delivered with full documentation, operator training, and lifecycle support—putting purpose-built performance directly on your factory floor.",
+        "image": {
+          "id": "about-service-4",
+          "sourcePath": "../images/Special purpose _ custom machines.jpeg"
+        }
+      },
+      {
+        "title": "Precision Manufacturing Services Forging, Casting & CNC Machining",
+        "description": "Beyond finished machines, we supply the parts that power them. Tight process controls ensure metallurgical integrity, while in-house heat treatment and surface finishing cut lead times. Learn more by posting about your specific requirements.",
+        "image": {
+          "id": "about-service-5",
+          "sourcePath": "../images/manufacturing services.jpg"
+        }
+      }
+    ],
+    "awards": [
+      {
+        "title": "'Star Performer'",
+        "image": {
+          "id": "about-award-1",
+          "sourcePath": "../images/Awards.jpg"
+        }
+      },
+      {
+        "title": "'National Rattan Award'",
+        "image": {
+          "id": "about-award-2",
+          "sourcePath": "../images/DSC_0023.JPG"
+        }
+      },
+      {
+        "title": "'Pride Of India'",
+        "image": {
+          "id": "about-award-3",
+          "sourcePath": "../images/DSC_0022.JPG"
+        }
+      },
+      {
+        "title": "'IOBRD-2007'",
+        "image": {
+          "id": "about-award-4",
+          "sourcePath": "../images/DSC_0020.JPG"
+        }
+      }
+    ],
+    "ctaTitle": "Build Beyond Ordinary",
+    "ctaDescription": "At Rangani Engineering, we engineer legacies.",
+    "ctaPrimaryLabel": "Email Us",
+    "ctaPrimaryUrl": "/contact",
+    "foundingYears": [
+      1981,
+      1991
+    ]
+  },
+  "contact": {
+    "pageHeading": "Connect <span className=\"text-teal-500\">With Us</span>",
+    "form": {
+      "initialValues": {
+        "name": "",
+        "email": "",
+        "phone": "",
+        "company": "",
+        "country": "",
+        "state": "",
+        "city": "",
+        "category": "General Inquiry",
+        "message": "",
+        "terms": false
+      },
+      "requiredFields": [
+        "name",
+        "email",
+        "company",
+        "country",
+        "state",
+        "city"
+      ],
+      "categoryOptions": [
+        "General Inquiry",
+        "Support",
+        "Feedback"
+      ],
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company",
+        "country": "Country",
+        "state": "State",
+        "city": "City",
+        "category": "Category",
+        "message": "Your Message"
+      },
+      "termsLabel": "I agree to the terms and conditions",
+      "successMessage": "Thank you! Your message has been sent.",
+      "errorMessage": "You must agree to the terms and conditions."
+    },
+    "sidebar": {
+      "title": "Happy to Help",
+      "description": "24/7 service support and technical assistance.",
+      "email": "mail@ranganiindia.com",
+      "phone": "Mobile: +91-8000920222 - Milan Rangani",
+      "address": "Survey No. 258, Plot No. 5 To 11, NH-8B, Gondal Road, Near Priyesh Cotton, Shapar, Rajkot-360024, Gujarat, India.",
+      "mapUrl": "https://maps.app.goo.gl/8QFjE7BRMg3AC63E9"
+    }
+  },
+  "categories": [
+    {
+      "id": 0,
+      "name": "Waste Management",
+      "slug": "waste-management",
+      "description": "High-pressure balers, shredders and cutting systems to compact, process and monetise scrap while lowering disposal costs.",
+      "image": {
+        "id": "category-1",
+        "sourcePath": "../images/3 Action Scrap Baling Press.png"
+      },
+      "productSlugs": [
+        "triple-action-scrap-baling-press",
+        "double-action-scrap-baling-press",
+        "pet-bottle-baling-press",
+        "continuous-baling-machine",
+        "continuous-scrapping-machine",
+        "shredder-machine",
+        "jumbo-scrap-baling-press",
+        "car-baler-machine",
+        "bid-breaking-machine",
+        "scrap-shearing-machine-(kechi)"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Industrial Machines",
+      "slug": "industrial-machines",
+      "description": "Heavy-duty presses and production equipment engineered for uptime, precision and low maintenance.",
+      "image": {
+        "id": "category-2",
+        "sourcePath": "../images/PHOTO EDIT 21.png"
+      },
+      "productSlugs": [
+        "ring-rolling-machine",
+        "cold-shearing-machine",
+        "heavy-duty-lathe-machine",
+        "number-punching-machine",
+        "sheet-slitting-machine"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Special Purpose Machines",
+      "slug": "special-purpose-machines",
+      "description": "When off‑the‑shelf falls short, we build to your process – hydraulics + automation, delivered with documentation and training.",
+      "image": {
+        "id": "category-3",
+        "sourcePath": "../images/DIPIPE.webp"
+      },
+      "productSlugs": [
+        "di-pipe-breaking-machine",
+        "pipe-hydrotest-machine",
+        "big-pipe-gauging-and-sizing-machine",
+        "hydraulic-press-(customized)",
+        "sheet-plate-bending-machine",
+        "manual-paper-baling-machine"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Manufacturing Services",
+      "slug": "manufacturing-services",
+      "description": "End‑to‑end build: forging, casting, CNC, fabrication, assembly, QA and global delivery to spec.",
+      "image": {
+        "id": "category-4",
+        "sourcePath": "../images/manufaclogo_CTP.png"
+      },
+      "productSlugs": []
+    }
+  ],
+  "products": [
+    {
+      "slug": "triple-action-scrap-baling-press",
+      "title": "Triple Action Scrap Baling Press",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "The Ultimate Solution for Metal Scrap Management",
+      "introDescription": "The Triple Action Scrap Baling Press is a powerhouse in the scrap processing industry, designed to achieve the highest output with the lowest power consumption. Available from bale sizes from 8” up to 18” and beyond, the standard weight of bale starts from 10 kg up to 800 kg for custom built up units. This machine stands as a testament to our commitment to quality and efficiency. With over hundreds of units being shipped every year, our baling press is trusted by businesses worldwide for its robust performance and durability.",
+      "videoUrl": "https://www.youtube.com/watch?v=i6Kmm21FPZs&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=35",
+      "gallery": [
+        {
+          "id": "triple-action-scrap-baling-press-gallery-1",
+          "sourcePath": "../images/3 Action Scrap Baling Press.png"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Higher Scrap Selling Price",
+        "Efficient Recycling",
+        "Lower Transportation Costs",
+        "Minimal Space Usage",
+        "Ease of Material Handling"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Size",
+          "specValue": "8\" x 8\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "25 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "45 Sec"
+        },
+        {
+          "specLabel": "Size",
+          "specValue": "10\" x 10\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "35 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "50 Sec"
+        },
+        {
+          "specLabel": "Size",
+          "specValue": "12\" x 12\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "50 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "60 Sec"
+        },
+        {
+          "specLabel": "Size",
+          "specValue": "14\" x 14\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "70 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "60 Sec"
+        },
+        {
+          "specLabel": "Size",
+          "specValue": "16\" x 16\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "125 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "80 Sec"
+        }
+      ],
+      "applicationMaterials": [
+        "Mild Steel",
+        "Stainless Steel",
+        "Aluminum",
+        "Copper",
+        "Commercial Scrap",
+        "Plastic / Paper"
+      ],
+      "applicationIndustries": []
+    },
+    {
+      "slug": "double-action-scrap-baling-press",
+      "title": "Double Action Scrap Baling Press",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "Dual Compression Power for High Scrap Efficiency",
+      "introDescription": "The 2 Action Baling Press is a compact and efficient solution, perfect for small-scale operations. Designed for smaller capacity and production needs, this press is ideal for businesses requiring a straightforward, non-automated baling process. It starts from bale size of 8” up to 16” with bale weight starting from 8 Kg.",
+      "videoUrl": "https://www.youtube.com/watch?v=wNAA8Wb5JNg&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=64",
+      "gallery": [
+        {
+          "id": "double-action-scrap-baling-press-gallery-1",
+          "sourcePath": "../images/2 action.png"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Higher Scrap Selling Price",
+        "Efficient Recycling",
+        "Lower Transportation Costs",
+        "Minimal Space Usage",
+        "Ease of Material Handling"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Size",
+          "specValue": "10\" x 10\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 15 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "55 Sec"
+        },
+        {
+          "specLabel": "Size",
+          "specValue": "15\" x 15\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 45 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "60 Sec"
+        },
+        {
+          "specLabel": "Size",
+          "specValue": "20\" x 20\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 90 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "80 Sec"
+        }
+      ],
+      "applicationMaterials": [
+        "Mild Steel",
+        "Stainless Steel",
+        "Aluminum",
+        "Copper",
+        "Commercial Scrap",
+        "Plastic / Paper"
+      ],
+      "applicationIndustries": []
+    },
+    {
+      "slug": "pet-bottle-baling-press",
+      "title": "PET Bottle Baling Press",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "Transform Bottle Waste into Compact, Recyclable Assets",
+      "introDescription": "The PET Bottle Press Machine is a cost-effective, one-action solution tailored for handling low-strength materials such as plastic bottles, clothes, and large hollow metal objects. Ideal for smaller operations, this press offers a low-cost way to efficiently process and compact materials. The standard sizes starts from 12” up to 24” with lowest bale weight from 30 Kg.",
+      "videoUrl": "https://www.youtube.com/watch?v=oB2KDrQjP8E&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=19",
+      "gallery": [
+        {
+          "id": "pet-bottle-baling-press-gallery-1",
+          "sourcePath": "../images/PHOTO EDIT 22.png"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Boost Recycling ROI",
+        "Compliance with Environmental Standards",
+        "Efficient Recycling",
+        "Lower Transportation Costs",
+        "Minimal Space Usage",
+        "Ease of Material Handling"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Bale Size",
+          "specValue": "26\" x 36\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "150 Kg"
+        },
+        {
+          "specLabel": "Bale Size",
+          "specValue": "36\" x 40\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 400 Kg"
+        }
+      ],
+      "applicationMaterials": [
+        "PET Plastic Bottles (all sizes)",
+        "HDPE Containers (optional customization)",
+        "Lightweight Plastic Packaging",
+        "Cotton and Cloth Wastes"
+      ],
+      "applicationIndustries": []
+    },
+    {
+      "slug": "continuous-baling-machine",
+      "title": "Continuous Baling Machine",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "Relentless Power for High-Volume Metal Recycling",
+      "introDescription": "The Continuous Metal Baler Machine is an automated solution tailored for high-standard, manpower-free plants. Integrated with a feeding conveyor system, this machine ensures seamless and efficient metal baling operations. Designed to handle large quantities of scrap metal with minimal human intervention, it enhances productivity and operational efficiency, making it ideal for large-scale recycling facilities that prioritize automation and quality. It can output 10 tons of scrap and more, depending on custom requirements.",
+      "videoUrl": "https://www.youtube.com/watch?v=LEvW1g1pInQ&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=81",
+      "gallery": [
+        {
+          "id": "continuous-baling-machine-gallery-1",
+          "sourcePath": "../images/Automatic  Continuous Baling Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Maximize Revenue",
+        "Reduce Downtime",
+        "Cut Labor Costs",
+        "Space Savings",
+        "Smart Hopper",
+        "Energy Saving Design"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Size",
+          "specValue": "8\" x 8\""
+        },
+        {
+          "specLabel": "Throughput / day",
+          "specValue": "25 tons Approx"
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "25 Kgs"
+        },
+        {
+          "specLabel": "Size",
+          "specValue": "12\" x 12\""
+        },
+        {
+          "specLabel": "Throughput / day",
+          "specValue": "65 tons Approx"
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "50 Kgs"
+        },
+        {
+          "specLabel": "Size",
+          "specValue": "14\" x 14\""
+        },
+        {
+          "specLabel": "Throughput / day",
+          "specValue": "100 tons Approx"
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "70 Kgs"
+        }
+      ],
+      "applicationMaterials": [
+        "Ferrous Metals (Steel, Iron, Auto Scrap)",
+        "Non-Ferrous Metals (Aluminum, Copper, Brass)",
+        "Mixed Metal Shredder Residue",
+        "Sheet Metal, Wire, and Turnings"
+      ],
+      "applicationIndustries": [
+        "Scrap Metal Yards",
+        "Automative Manufacturing and other manufacturing recycling",
+        "Electronics and Electricals recycling plants",
+        "Foundries and Steel Mills"
+      ]
+    },
+    {
+      "slug": "continuous-scrapping-machine",
+      "title": "Continuous Scrapping Machine",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "Unstoppable Efficiency for Scrap Cutting",
+      "introDescription": "The Continuous Scrapper Machine is designed for high-speed, automated processing of both hollow and solid waste materials. Capable of handling large metal components and robust scrap, this machine maximizes operational efficiency by reducing manual intervention. The machine can process 20 tons of scrap and goes up to 40 tons of scrap in a day.",
+      "videoUrl": "https://www.youtube.com/watch?v=P7Uyso0uCIU&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=18",
+      "gallery": [
+        {
+          "id": "continuous-scrapping-machine-gallery-1",
+          "sourcePath": "../images/bluemach.webp"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Maximize Material Recovery",
+        "Reduce Processing Time",
+        "Lower Operational Costs",
+        "Scalable Output",
+        "Modular Attachments"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Input Size",
+          "specValue": "Up to 24\" x 24\""
+        },
+        {
+          "specLabel": "Output Size",
+          "specValue": "2\"-8\" Chips"
+        },
+        {
+          "specLabel": "Throughput / day",
+          "specValue": "10-20 Tons"
+        },
+        {
+          "specLabel": "Input Size",
+          "specValue": "Up to 36\" x 36\""
+        },
+        {
+          "specLabel": "Output Size",
+          "specValue": "2\"-8\" Chips"
+        },
+        {
+          "specLabel": "Throughput / day",
+          "specValue": "10-20 Tons"
+        }
+      ],
+      "applicationMaterials": [
+        "Ferrous Metals (steel beams, automotive scrap, rebar)",
+        "Non-Ferrous Metals (aluminum, copper cables, brass fixtures)",
+        "Mixed Scrap (e-waste, appliances, industrial machinery)",
+        "Light Contaminants (rubber, plastic-coated metals)"
+      ],
+      "applicationIndustries": [
+        "Scrap Metal Recycling Facilities",
+        "Automotive Dismantling Plants",
+        "E-Waste Recycling Centers",
+        "Scrap Metal Yards",
+        "Automative Manufacturing and other manufacturing recycling",
+        "Electronics and Electricals recycling plants",
+        "Foundries and Steel Mills"
+      ]
+    },
+    {
+      "slug": "shredder-machine",
+      "title": "Shredder Machine",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "Cut through anything",
+      "introDescription": "The Shredder Machine offers versatile shredding solutions for a wide range of materials, including plastics, metals, paper, and wood. Engineered with powerful motors and cutting-edge blade technology, it ensures efficient and fast material reduction. The durable construction and high-torque mechanism allow it to handle even the toughest waste with ease. It can process various materials like wood, metal, rubber, etc and shred up to 40 tons of scrap in a day.",
+      "videoUrl": "https://www.youtube.com/watch?v=nSfz89qrw0U&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=65",
+      "gallery": [
+        {
+          "id": "shredder-machine-gallery-1",
+          "sourcePath": "../images/Shredder Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Volume Reduction: Cut storage and disposal costs by up to 80% with compact shredded output.",
+        "Secure Destruction: Cross-cut or micro-cut blades ensure data security for sensitive documents/hard drives.",
+        "Recycling Readiness: Uniformly shredded materials streamline sorting and melting processes.",
+        "Low Maintenance: Self-sharpening blades and easy-access design reduce downtime."
+      ],
+      "specRows": [
+        {
+          "specLabel": "Shredding Capacity",
+          "specValue": "500-800 Kg"
+        },
+        {
+          "specLabel": "Max Material Thickness",
+          "specValue": "10 mm (Metal)"
+        },
+        {
+          "specLabel": "Throughput/Hour",
+          "specValue": "1-2 Tons"
+        },
+        {
+          "specLabel": "Shredding Capacity",
+          "specValue": "1-1.5 Tons"
+        },
+        {
+          "specLabel": "Max Material Thickness",
+          "specValue": "15 mm (Metal)"
+        },
+        {
+          "specLabel": "Throughput/Hour",
+          "specValue": "3-5 Tons"
+        },
+        {
+          "specLabel": "Shredding Capacity",
+          "specValue": "2-3 Tons"
+        },
+        {
+          "specLabel": "Max Material Thickness",
+          "specValue": "30 mm (Metal)"
+        },
+        {
+          "specLabel": "Throughput/Hour",
+          "specValue": "6-9 Tons"
+        }
+      ],
+      "applicationMaterials": [
+        "Metals: Steel sheets, aluminum profiles, copper cables, automotive scrap",
+        "Plastics: PET bottles, HDPE containers, PVC pipes, industrial plastic waste",
+        "Paper/Cardboard: Confidential documents, corrugated boxes, mixed paper streams",
+        "E-Waste: Circuit boards, hard drives, cables, appliances",
+        "Organic Waste: Wood pallets, biomass, agricultural residues"
+      ],
+      "applicationIndustries": [
+        "Scrap Metal Recycling Facilities",
+        "E-Waste Recycling Centers",
+        "Manufacturing Plants (post-production scrap)",
+        "Waste Management Companies (bulk material processing)",
+        "Government/Military (secure data disposal)"
+      ]
+    },
+    {
+      "slug": "jumbo-scrap-baling-press",
+      "title": "Jumbo Scrap Baling Press",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "Power Meets Precision in Large-Scale Scrap Management",
+      "introDescription": "The Jumbo Baling Press is engineered to handle high-volume baling operations with unmatched efficiency. It’s built for maximum durability, making it ideal for large-scale industries dealing with vast quantities of scrap material. This powerful machine ensures you achieve the highest compacting force with minimal operational effort. Custom-built to meet strict industrial requirements, it can handle invariable scrap and can process up to 25 tons of scrap a day.",
+      "videoUrl": "https://www.youtube.com/watch?v=YilZOGydn8U&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=6",
+      "gallery": [
+        {
+          "id": "jumbo-scrap-baling-press-gallery-1",
+          "sourcePath": "../images/Jumbo Scrap Baling Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Slash Labor Costs: High Volume Optimizes for output for manpower constraints",
+        "Maximize Storage Efficiency: Dense bales reduce floor space needs by up to 70%.",
+        "Boost Profit Margins: High-density bales command premium pricing from recyclers.",
+        "Durable and Breakdown Free Operations: Engineered for 100,000+ cycles with minimal wear",
+        "Scalable Operations: Custom configurations for high-demand industries (e.g., steel mills, e-waste recyclers)."
+      ],
+      "specRows": [
+        {
+          "specLabel": "Bale Size",
+          "specValue": "18\" x 18\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 250 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "120 sec"
+        },
+        {
+          "specLabel": "Bale Size",
+          "specValue": "20\" x 20\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 350 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "140 sec"
+        },
+        {
+          "specLabel": "Bale Size",
+          "specValue": "24\" x 24\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 450 Kg"
+        },
+        {
+          "specLabel": "Idle Cycle Time",
+          "specValue": "150 sec"
+        }
+      ],
+      "applicationMaterials": [
+        "Ferrous Metals (Small Rusty Steel Beams, Automotive Scrap, Machinery Parts)",
+        "Non-Ferrous Metals (Aluminum Castings, Copper Wire Bundles)",
+        "Mixed Industrial Scrap (Metal + Plastic Hybrid Waste)",
+        "Textile Bulk Waste (Carpet, Fabric Rolls)",
+        "Agricultural Waste (Plastic Mulch, Silage Wrap)"
+      ],
+      "applicationIndustries": [
+        "Mega-Scale Recycling Facilities",
+        "Steel and Aluminum Production Plants",
+        "Textile Manufacturing Hubs",
+        "Agricultural Cooperatives",
+        "Manufacturing Plants (post-production scrap)",
+        "Waste Management Companies (bulk material processing)"
+      ]
+    },
+    {
+      "slug": "car-baler-machine",
+      "title": "Car Baler Machine",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "Transform End-of-Life Vehicles into Compact, Recyclable Assets",
+      "introDescription": "The Car Baler Machine is specifically designed for the automotive industry, providing a robust solution for compressing and baling old cars and metal remnants. It's built with heavy-duty components to withstand rigorous use, making it the go-to choice for automotive recyclers and government-oriented scrap yards and projects. It has capacity to output up to 800 Kg of bales and comes with a max compression force of 500 tons.",
+      "videoUrl": "https://www.youtube.com/watch?v=5duNf0eaYC0&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=30",
+      "gallery": [
+        {
+          "id": "car-baler-machine-gallery-1",
+          "sourcePath": "../images/Car Baling Machine.jpg"
+        },
+        {
+          "id": "car-baler-machine-gallery-2",
+          "sourcePath": "../images/Car Baling Machine.jpg"
+        },
+        {
+          "id": "car-baler-machine-gallery-3",
+          "sourcePath": "../images/Car Baling Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Maximize Scrap Value: High-density bales attract premium prices from smelters and steel mills.",
+        "Space Optimization: Reduce vehicle storage footprint by up to 90% for efficient yard management.",
+        "Enhanced Safety: Eliminate sharp edges and hazardous loose debris with compact, uniform bales.",
+        "Labor Savings: Automated systems minimize manual handling of bulky, dangerous scrap.",
+        "Eco-Compliance: Streamline recycling processes to meet stringent environmental regulations."
+      ],
+      "specRows": [
+        {
+          "specLabel": "Bale Size",
+          "specValue": "16\" x 16\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 250 Kg (metal)"
+        },
+        {
+          "specLabel": "Max Output/day",
+          "specValue": "40-80 Tons"
+        },
+        {
+          "specLabel": "Bale Size",
+          "specValue": "18\" x 18\""
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "Up to 350 Kg"
+        },
+        {
+          "specLabel": "Max Output/day",
+          "specValue": "80-120 Tons"
+        },
+        {
+          "specLabel": "Bale Size",
+          "specValue": "Custom Bigger Size"
+        },
+        {
+          "specLabel": "Bale Weight",
+          "specValue": "350+ Kg"
+        },
+        {
+          "specLabel": "Max Output/day",
+          "specValue": "120+ Tons"
+        }
+      ],
+      "applicationMaterials": [
+        "End-of-life vehicles (cars, trucks, buses)",
+        "Automotive scrap (steel frames, aluminum engines, copper wiring)",
+        "Government-seized vehicles (confiscated cars, damaged fleet vehicles)"
+      ],
+      "applicationIndustries": [
+        "Automotive recycling facilities",
+        "Government scrap yards and public waste projects",
+        "Metal recovery plants processing ELV (End-of-Life Vehicles)",
+        "Demolition companies handling fleet vehicles or industrial machinery"
+      ]
+    },
+    {
+      "slug": "bid-breaking-machine",
+      "title": "Bid breaking machine",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "Breaking the Unbreakable",
+      "introDescription": "Built to process large, solid materials like ore boulders, engine castings, and scrap metal, our Bid Breaking Machine employs ultra-high hydraulic force to fragment tough materials into manageable pieces. It possess the ability to process up to 5 tons of non-conventional materials and comes with a pressing force of up to 1.5 K Tons.",
+      "videoUrl": "https://www.youtube.com/watch?v=IVgorx7VVTs&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=11",
+      "gallery": [
+        {
+          "id": "bid-breaking-machine-gallery-1",
+          "sourcePath": "../images/Bid Breaking Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Ultra-High Hydraulic Force (1000+ Tons)",
+        "Heavy Duty Built",
+        "Efficient Design"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Bed Size",
+          "specValue": "4 x 6 ft"
+        },
+        {
+          "specLabel": "Idle Cycle Time sec",
+          "specValue": "60 sec"
+        },
+        {
+          "specLabel": "Hydraulic Force",
+          "specValue": "600-800 Ton"
+        },
+        {
+          "specLabel": "Bed Size",
+          "specValue": "5 x 7 ft"
+        },
+        {
+          "specLabel": "Idle Cycle Time sec",
+          "specValue": "60+ sec"
+        },
+        {
+          "specLabel": "Hydraulic Force",
+          "specValue": "800-1000 Tons"
+        },
+        {
+          "specLabel": "Bed Size",
+          "specValue": "Custom size"
+        },
+        {
+          "specLabel": "Idle Cycle Time sec",
+          "specValue": "As per req"
+        },
+        {
+          "specLabel": "Hydraulic Force",
+          "specValue": "1000+ Tons"
+        }
+      ],
+      "applicationMaterials": [
+        "Ore boulders (iron, copper, gold)",
+        "Engine blocks, gearboxes, and industrial castings",
+        "Scrap metal slabs, steel beams, and machinery parts",
+        "Demolition debris (concrete-reinforced metal, structural steel)",
+        "Aerospace components (titanium, alloy remnants)"
+      ],
+      "applicationIndustries": []
+    },
+    {
+      "slug": "scrap-shearing-machine-(kechi)",
+      "title": "Scrap Shearing Machine (kechi)",
+      "categoryName": "Waste Management",
+      "categorySlug": "waste-management",
+      "tagline": "A Compact Cutting Solution",
+      "introDescription": "Engineered for high-volume recycling operations, our Scrap Shearing Machine efficiently processes bulky metal scrap into compact, recyclable fragments. Powered by a high-torque hydraulic system, it delivers clean, forceful cuts through ferrous and non-ferrous materials, including steel, aluminum, and copper, without thermal distortion. Ideal for scrap yards, foundries, and metal recycling plants. It can cut through 25 mm solid material and possess cutting capacity of up to 400 tons.",
+      "videoUrl": "https://www.youtube.com/watch?v=Hs1SfCPpDrg&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=4",
+      "gallery": [
+        {
+          "id": "scrap-shearing-machine-(kechi)-gallery-1",
+          "sourcePath": "../images/Scrap Shearing Machine (kechi).jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Maximize Material Recovery",
+        "Maximize Scrap Value",
+        "Durability Guarantee"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Input Size",
+          "specValue": "Up to 32 mm (round bar)"
+        },
+        {
+          "specLabel": "Max Cuts / min",
+          "specValue": "30"
+        },
+        {
+          "specLabel": "Input Size",
+          "specValue": "Up to 40 mm"
+        },
+        {
+          "specLabel": "Max Cuts / min",
+          "specValue": "25"
+        }
+      ],
+      "applicationMaterials": [
+        "Ferrous Metals: Steel beams, rebar, automotive scrap, machinery parts",
+        "Non-Ferrous Metals: Aluminum sheets, copper pipes, brass fixtures",
+        "Mixed Scrap: Shredder residue, demolition waste, industrial castings",
+        "Specialty Metals: Stainless steel, titanium aerospace components"
+      ],
+      "applicationIndustries": [
+        "Scrap Metal Recycling Facilities",
+        "Automotive Dismantling Plants",
+        "E-Waste Recycling Centers",
+        "Demolition and Construction Sites",
+        "Manufacturing Plants (post-production scrap)"
+      ]
+    },
+    {
+      "slug": "ring-rolling-machine",
+      "title": "Ring Rolling Machine",
+      "categoryName": "Industrial Machines",
+      "categorySlug": "industrial-machines",
+      "tagline": "Precise Ring Forming",
+      "introDescription": "Ring Rolling Machine is engineered for precision hot or cold forming of seamless metal rings, essential for applications in aerospace, energy, and heavy machinery. Equipped with advanced hydraulic systems, it ensures uniform material flow and exact dimensional tolerances for rings ranging from small bearings to large flanges. Customizable roller configurations adapt to various alloys, including steel, titanium, and copper, while integrated thermal management prevents deformation. It comes with capacity of materials with diameter between 150 to 400 mm, with thickness up to 100 mm.",
+      "videoUrl": "https://www.youtube.com/watch?v=ND37x0Ajm7A&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=59",
+      "gallery": [
+        {
+          "id": "ring-rolling-machine-gallery-1",
+          "sourcePath": "../images/Ring Rolling Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Efficient Hydraulic System",
+        "Heavy Duty Built",
+        "High-Volume Readiness"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Ring Diameter",
+          "specValue": "Up to 200 mm"
+        },
+        {
+          "specLabel": "Material Thickness",
+          "specValue": "10-20 mm"
+        },
+        {
+          "specLabel": "Max. Ring Weight",
+          "specValue": "3 Kg"
+        },
+        {
+          "specLabel": "Ring Diameter",
+          "specValue": "Up to 350 mm"
+        },
+        {
+          "specLabel": "Material Thickness",
+          "specValue": "20-30 mm"
+        },
+        {
+          "specLabel": "Max. Ring Weight",
+          "specValue": "5 Kg"
+        },
+        {
+          "specLabel": "Ring Diameter",
+          "specValue": "Custom Size"
+        },
+        {
+          "specLabel": "Material Thickness",
+          "specValue": "30+ mm"
+        },
+        {
+          "specLabel": "Max. Ring Weight",
+          "specValue": "5+ Kg"
+        }
+      ],
+      "applicationMaterials": [
+        "Ferrous Metals: Major Types",
+        "Steel Alloys: Carbon steel, stainless steel.",
+        "High-Temp Alloys: Inconel, Hastelloy, nickel-based superalloys.",
+        "Non-Ferrous: Copper, brass, bronze."
+      ],
+      "applicationIndustries": [
+        "Aerospace: Engine casings, turbine discs, landing gear rings.",
+        "Energy: Wind turbine hubs, nuclear reactor flanges, oil rig components.",
+        "Heavy Machinery: Gears, bearings, hydraulic cylinder bands.",
+        "Automotive: Transmission rings, EV battery housings.",
+        "Defense: Armored vehicle wheel rims, missile guidance systems."
+      ]
+    },
+    {
+      "slug": "cold-shearing-machine",
+      "title": "Cold Shearing Machine",
+      "categoryName": "Industrial Machines",
+      "categorySlug": "industrial-machines",
+      "tagline": "Cut Billets at Unmatched Speed, Zero Heat, Zero Waste.",
+      "introDescription": "The Cold Shearing Machine is an innovative solution for fast and efficient billet production. Designed for volume production, this machine eliminates the need for traditional banshaw usage, offering an automatic and streamlined shearing process. Its robust construction and advanced technology ensure precise billet size cutting and high-speed operations, making it an essential tool for industries aiming to enhance their billet production capabilities. It can easily cut through solids of up to 80 mm in diameter in a single shot. It comes with a capacity of 1200 tons of force.",
+      "videoUrl": "https://www.youtube.com/watch?v=63yRDWemk58&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=68",
+      "gallery": [
+        {
+          "id": "cold-shearing-machine-gallery-1",
+          "sourcePath": "../images/Cold Shearing Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Boost Productivity: Cut 5x faster than traditional bandsaws with no manual intervention.",
+        "Maximize Material Yield: Near-zero kerf loss reduces waste and material costs.",
+        "Labor Savings: Fully automated workflow slashes staffing needs by up to 70%."
+      ],
+      "specRows": [
+        {
+          "specLabel": "Max Billet Size",
+          "specValue": "40 x 40 mm"
+        },
+        {
+          "specLabel": "Cycle Time",
+          "specValue": "8-16 Sec"
+        },
+        {
+          "specLabel": "Max Billet Size",
+          "specValue": "Up to 60 x 60 mm"
+        },
+        {
+          "specLabel": "Cycle Time",
+          "specValue": "12-20 Sec"
+        },
+        {
+          "specLabel": "Max Billet Size",
+          "specValue": "Up to 100 x 100 mm"
+        },
+        {
+          "specLabel": "Cycle Time",
+          "specValue": "16-24 Sec"
+        },
+        {
+          "specLabel": "Max Billet Size",
+          "specValue": "Custom Size"
+        },
+        {
+          "specLabel": "Cycle Time",
+          "specValue": "24+ Sec"
+        }
+      ],
+      "applicationMaterials": [
+        "Ferrous Steel: Carbon steel, alloy steel, stainless steel.",
+        "Non-Ferrous: Aluminum, copper, brass billets.",
+        "Custom Profiles: Round, square, or rectangular cross-sections."
+      ],
+      "applicationIndustries": [
+        "Forging Plants",
+        "Metal Billet Plants"
+      ]
+    },
+    {
+      "slug": "heavy-duty-lathe-machine",
+      "title": "Heavy Duty Lathe Machine",
+      "categoryName": "Industrial Machines",
+      "categorySlug": "industrial-machines",
+      "tagline": "Customized Precision on Any Scale",
+      "introDescription": "The Lathe Machine is versatile and customizable, designed to handle operations from small precision components to large workpieces meters in length. Each machine is built to your specific requirements, ensuring it meets the unique demands of your workshop or factory. With precision engineering, the Lathe Machine delivers smooth and stable turning, shaping, and drilling operations. It can process jobs from 5 mm to 500 mm diameter, and up to 14 meters in length (between tail stock distance).",
+      "videoUrl": "",
+      "gallery": [
+        {
+          "id": "heavy-duty-lathe-machine-gallery-1",
+          "sourcePath": "../images/Heavy Duty Lathe Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Cost-Effective Customization: Pay only for features your operations require.",
+        "Durability: Hardened guideways and tempered gears withstand decades of heavy use."
+      ],
+      "specRows": [
+        {
+          "specLabel": "Max Length",
+          "specValue": "3-6 Meters"
+        },
+        {
+          "specLabel": "Max Diameter",
+          "specValue": "800 mm"
+        },
+        {
+          "specLabel": "Motor Power hp",
+          "specValue": "3"
+        },
+        {
+          "specLabel": "Max Length",
+          "specValue": "6-9 Meters"
+        },
+        {
+          "specLabel": "Max Diameter",
+          "specValue": "1200 mm"
+        },
+        {
+          "specLabel": "Motor Power hp",
+          "specValue": "5"
+        },
+        {
+          "specLabel": "Max Length",
+          "specValue": "9+ meters"
+        },
+        {
+          "specLabel": "Max Diameter",
+          "specValue": "Custom size"
+        },
+        {
+          "specLabel": "Motor Power hp",
+          "specValue": "custom"
+        }
+      ],
+      "applicationMaterials": [
+        "Metals: Steel, stainless steel, aluminum, etc.",
+        "Plastics: Engineering-grade polymers, PTFE, nylon.",
+        "Composites: Carbon fiber, fiberglass-reinforced materials.",
+        "Custom Applications: Rotors, shafts, flanges, gears, and prototypes."
+      ],
+      "applicationIndustries": [
+        "Automotive: Crankshafts, brake drums, transmission components.",
+        "Aerospace: Turbine blades, landing gear parts, engine housings.",
+        "Energy: Wind turbine shafts, pipeline valves, hydraulic cylinders.",
+        "Marine: Propeller shafts, rudder stocks, dock machinery.",
+        "General Manufacturing: Custom molds, rollers, and industrial tooling"
+      ]
+    },
+    {
+      "slug": "number-punching-machine",
+      "title": "Number Punching Machine",
+      "categoryName": "Industrial Machines",
+      "categorySlug": "industrial-machines",
+      "tagline": "Precision Marking, From Micro to Macro",
+      "introDescription": "The Number Punching Machine is highly compact and efficient, designed to handle a wide range of circular jobs from diameter sizes from 30 mm to 300 mm and thickness range from 5 mm to 50 mm. Ideal for precise number punching tasks, this versatile machine ensures accuracy and reliability in all your marking applications.",
+      "videoUrl": "https://www.youtube.com/watch?v=EtuiNHwGpYs&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=9",
+      "gallery": [
+        {
+          "id": "number-punching-machine-gallery-1",
+          "sourcePath": "../images/Number Punching Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Error-Free Marking",
+        "Time Savings",
+        "Adaptability",
+        "Cost-Effective"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Diameter Range",
+          "specValue": "40-150 mm"
+        },
+        {
+          "specLabel": "Stroke / min",
+          "specValue": "10-30"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "2 Hp"
+        },
+        {
+          "specLabel": "Diameter Range",
+          "specValue": "Custom Size"
+        },
+        {
+          "specLabel": "Stroke / min",
+          "specValue": "-"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "-"
+        }
+      ],
+      "applicationMaterials": [
+        "Metals: Steel, aluminum, brass, copper.",
+        "Plastics: ABS, PVC, polycarbonate.",
+        "Composites: Fiberglass, carbon fiber panels.",
+        "Engineered Materials: Ceramics (with specialized tooling)."
+      ],
+      "applicationIndustries": [
+        "Forging: Rings and circular objects",
+        "General Manufacturing of round objects"
+      ]
+    },
+    {
+      "slug": "sheet-slitting-machine",
+      "title": "Sheet Slitting Machine",
+      "categoryName": "Industrial Machines",
+      "categorySlug": "industrial-machines",
+      "tagline": "Precision Slitting, Uninterrupted Productivity",
+      "introDescription": "The Sheet Slitting Machine is designed to provide precise and efficient slitting of various materials. Equipped with a decoiler and a cut-to-length setup, it offers seamless operation for continuous production. This machine is ideal for industries requiring consistent and accurate slitting, ensuring minimal material wastage and maximized productivity. The machine can handle coils up to 2.5 meters in diameter with maximum thickness of 6 mm.",
+      "videoUrl": "https://www.youtube.com/watch?v=TdWAzGiwmxk&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=86",
+      "gallery": [
+        {
+          "id": "sheet-slitting-machine-gallery-1",
+          "sourcePath": "../images/Sheet Slitting Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Time Savings",
+        "Portable Design",
+        "Cost-Effective"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Max Material width",
+          "specValue": "1000 mm"
+        },
+        {
+          "specLabel": "Thickness",
+          "specValue": "8 mm"
+        },
+        {
+          "specLabel": "Strokes / Hour",
+          "specValue": "20"
+        },
+        {
+          "specLabel": "Servo Motor Power",
+          "specValue": "7.5 KW"
+        },
+        {
+          "specLabel": "Max Material width",
+          "specValue": "Custom Size"
+        },
+        {
+          "specLabel": "Thickness",
+          "specValue": "-"
+        },
+        {
+          "specLabel": "Strokes / Hour",
+          "specValue": "-"
+        },
+        {
+          "specLabel": "Servo Motor Power",
+          "specValue": "-"
+        }
+      ],
+      "applicationMaterials": [
+        "Metals: Steel coils, aluminum sheets, copper foils.",
+        "Plastics: PVC, PET, polypropylene films.",
+        "Composites: Fiberglass, carbon fiber laminates.",
+        "Specialty Materials: Adhesive tapes, insulating films, flexible circuits."
+      ],
+      "applicationIndustries": [
+        "Metal Fabrication: Automotive body panels, HVAC components, roofing sheets.",
+        "Packaging: Film slitting for food wrappers, labels, and industrial packaging.",
+        "Electronics: Precision slitting for flexible circuits, battery foils, and insulation."
+      ]
+    },
+    {
+      "slug": "di-pipe-breaking-machine",
+      "title": "DI Pipe Breaking Machine",
+      "categoryName": "Special Purpose Machines",
+      "categorySlug": "special-purpose-machines",
+      "tagline": "Revolutionizing Pipe Recycling and boosting operational efficiency",
+      "introDescription": "The DI Pipe Breaking Machine falls under the SPM category, specifically created to recycle pipes and similar products for manufacturing plants. This automated machine features a conveyor feeding system that ensures smooth material handling. The broken pipes are fed out through a conveyor system that leads into a magnetic separator and dust separator, ensuring clean and efficient recycling. This solution can recover 95% waste from pipes up to 1200 mm in diameter with capacity of 25 tons a day.",
+      "videoUrl": "https://www.youtube.com/watch?v=bnyDFZJaJ_k&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=25",
+      "gallery": [
+        {
+          "id": "di-pipe-breaking-machine-gallery-1",
+          "sourcePath": "../images/DI - Pipe Breaking Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Boost operational efficiency",
+        "Reduce Manufacturing waste",
+        "Efficient waste management and recovery"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Max pipe diameter",
+          "specValue": "1000 mm"
+        },
+        {
+          "specLabel": "Thickness",
+          "specValue": "8 mm"
+        },
+        {
+          "specLabel": "output / day",
+          "specValue": "60-70 Ton"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "50 HP"
+        },
+        {
+          "specLabel": "Max pipe diameter",
+          "specValue": "1250 mm"
+        },
+        {
+          "specLabel": "Thickness",
+          "specValue": "10 mm"
+        },
+        {
+          "specLabel": "output / day",
+          "specValue": "80-100 Ton"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "75 HP"
+        },
+        {
+          "specLabel": "Max pipe diameter",
+          "specValue": "Custom Size"
+        },
+        {
+          "specLabel": "Thickness",
+          "specValue": "-"
+        },
+        {
+          "specLabel": "output / day",
+          "specValue": "-"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "-"
+        }
+      ],
+      "applicationMaterials": [
+        "Ductile Iron (DI) Pipes",
+        "Cast Iron Pipes",
+        "Concrete-Lined Metal Pipes",
+        "Mixed Construction Debris (with ferrous content)"
+      ],
+      "applicationIndustries": [
+        "Pipe manufacturing plants",
+        "Construction industry",
+        "Recycling industry"
+      ]
+    },
+    {
+      "slug": "pipe-hydrotest-machine",
+      "title": "Pipe Hydrotest Machine",
+      "categoryName": "Special Purpose Machines",
+      "categorySlug": "special-purpose-machines",
+      "tagline": "Uncompromised Safety checking for Pipelines",
+      "introDescription": "A semi-automatic Special Purpose Machine (SPM) designed to rigorously test the integrity and leak resistance of large-diameter pipes, ensuring compliance with global safety and quality standards. Capable of handling pipes up to 3 meters in diameter, this machine uses high-pressure water injection to simulate extreme operating conditions, identifying weaknesses, cracks, or flaws in pipelines. The semi-automatic system features variable pressure cycles, real-time digital monitoring, and automated shut-off valves to prevent over-pressurization. The machine can handle pipes up to 750 mm in diameter and 6 meters in length, with a maximum pressure of 500 bar.",
+      "videoUrl": "",
+      "gallery": [
+        {
+          "id": "pipe-hydrotest-machine-gallery-1",
+          "sourcePath": "../images/Pipe Hydrotest Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Boost production quality",
+        "Maintain PESTAL Compliance",
+        "Leak visualization"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Max pipe diameter",
+          "specValue": "2500 mm"
+        },
+        {
+          "specLabel": "Pressure Range",
+          "specValue": "5-50 bar"
+        },
+        {
+          "specLabel": "Automation level",
+          "specValue": "Semi"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "50 hp"
+        },
+        {
+          "specLabel": "Water Pump",
+          "specValue": "30 KW"
+        },
+        {
+          "specLabel": "Max pipe diameter",
+          "specValue": "Custom Size"
+        },
+        {
+          "specLabel": "Pressure Range",
+          "specValue": "-"
+        },
+        {
+          "specLabel": "Automation level",
+          "specValue": "Semi / auto cycle"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "-"
+        },
+        {
+          "specLabel": "Water Pump",
+          "specValue": "-"
+        }
+      ],
+      "applicationMaterials": [
+        "Metal pipes: Steel, ductile iron, stainless steel.",
+        "Plastics: PVC, HDPE, reinforced composites.",
+        "Concrete-Lined Pipes: Pre-stressed or hybrid materials.",
+        "Coated Pipes: Epoxy, bitumen, or corrosion-resistant layers."
+      ],
+      "applicationIndustries": [
+        "Pipe manufacturing plants.",
+        "Oil & Gas: Subsea pipelines, refinery networks.",
+        "Water Infrastructure: Municipal supply lines, sewage systems.",
+        "Industrial Manufacturing: Chemical plant piping, HVAC ducting.",
+        "Construction: Tunnel boring pipelines, geothermal installations.",
+        "Energy: CO2 transport lines, hydrogen fuel pipelines."
+      ]
+    },
+    {
+      "slug": "big-pipe-gauging-and-sizing-machine",
+      "title": "Big Pipe Gauging and Sizing Machine",
+      "categoryName": "Special Purpose Machines",
+      "categorySlug": "special-purpose-machines",
+      "tagline": "Engineered for Correcting Pipeline Geometry",
+      "introDescription": "The Machine verifies the dimensional accuracy of large pipes, ensuring adherence to strict tolerances for diameter, ovality, and straightness. Equipped with contact probes, and rotary encoders, it automatically measures and records geometric parameters of pipes up to 4 meters in diameter and 12 meters in length. The adjustable mandrel and roller system accommodates varying pipe materials, while a user-friendly HMI interface allows operators to set tolerance thresholds and generate compliance reports. The machine can straighten pipes of up to 12 meters in a single shot with diameters ranging from 500 mm to 2500 mm.",
+      "videoUrl": "",
+      "gallery": [
+        {
+          "id": "big-pipe-gauging-and-sizing-machine-gallery-1",
+          "sourcePath": "../images/Pipe Sizing and Guaging Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Eliminate Rework Costs",
+        "Regulatory Compliance",
+        "Faster Approvals",
+        "Versatile Adaptation",
+        "Boost Operational Efficiency"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Max pipe diameter",
+          "specValue": "2500 mm"
+        },
+        {
+          "specLabel": "Max Pipe Pressure",
+          "specValue": "5-50 bar"
+        },
+        {
+          "specLabel": "Automation level",
+          "specValue": "Semi"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "50 hp"
+        },
+        {
+          "specLabel": "Max pipe diameter",
+          "specValue": "Custom Size"
+        },
+        {
+          "specLabel": "Max Pipe Pressure",
+          "specValue": "-"
+        },
+        {
+          "specLabel": "Automation level",
+          "specValue": "Semi / auto cycle"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "-"
+        }
+      ],
+      "applicationMaterials": [
+        "Metal pipes: Steel, ductile iron, stainless steel.",
+        "Plastics: PVC, HDPE, reinforced composites.",
+        "Concrete/Steel Hybrids: Pre-stressed or lined pipelines.",
+        "Coated Pipes: Anti-corrosion layers, epoxy finishes."
+      ],
+      "applicationIndustries": [
+        "Pipe manufacturing plants.",
+        "Oil & Gas: Subsea pipelines, refinery networks.",
+        "Water Infrastructure: Municipal supply lines, sewage systems.",
+        "Industrial Manufacturing: Chemical plant piping, HVAC ducting.",
+        "Construction: Tunnel boring pipelines, geothermal installations.",
+        "Energy: CO2 transport lines, hydrogen fuel pipelines."
+      ]
+    },
+    {
+      "slug": "hydraulic-press-(customized)",
+      "title": "Hydraulic Press (customized)",
+      "categoryName": "Special Purpose Machines",
+      "categorySlug": "special-purpose-machines",
+      "tagline": "Power Meets Precision for Every Industrial Challenge",
+      "introDescription": "Our Hydraulic Press range spans from 50-ton to 5000-ton capacity, catering to various industrial needs from standard pressing to heavy-duty tasks like bid breaking and cast iron crushing. Known for its durability, each press is built to last for decades under rigorous use. The hydraulic control mechanisms provide smooth, high-precision operations, making it suitable for applications requiring both power and finesse. Customizable to your specific requirements, the Hydraulic Press is a reliable and robust solution for industries demanding exceptional performance and longevity.",
+      "videoUrl": "https://www.youtube.com/watch?v=W4PyX6B_4lY",
+      "gallery": [
+        {
+          "id": "hydraulic-press-(customized)-gallery-1",
+          "sourcePath": "../images/Hydraulic Press (customized).jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Wide customization",
+        "Cost Efficiency",
+        "Durability",
+        "Precision Control"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Pressing Capacity",
+          "specValue": "50-100 Ton"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "15 Hp"
+        },
+        {
+          "specLabel": "Pressing Capacity",
+          "specValue": "100-150 Ton"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "25 Hp"
+        },
+        {
+          "specLabel": "Pressing Capacity",
+          "specValue": "150-300 Ton"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "50 Hp"
+        },
+        {
+          "specLabel": "Pressing Capacity",
+          "specValue": "300-500 Ton"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "60 Hp"
+        },
+        {
+          "specLabel": "Pressing Capacity",
+          "specValue": "Custom"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "__MISSING__"
+        }
+      ],
+      "applicationMaterials": [
+        "Metal Forming: Stamping, bending, and deep drawing of steel, aluminum, and alloys.",
+        "Recycling: Crushing scrap metal, breaking boulders, and compacting waste.",
+        "Manufacturing: Molding, punching, and assembly of automotive or industrial parts.",
+        "Construction: Testing concrete blocks, crushing aggregates, and forming structural components.",
+        "Aerospace: Precision pressing of turbine blades, fuselage panels, and landing gear."
+      ],
+      "applicationIndustries": []
+    },
+    {
+      "slug": "sheet-plate-bending-machine",
+      "title": "Sheet Plate Bending Machine",
+      "categoryName": "Special Purpose Machines",
+      "categorySlug": "special-purpose-machines",
+      "tagline": "",
+      "introDescription": "Designed for shaping metal plates and sheets into arcs, cylinders, or complex profiles, our hydraulic Plate/Sheet Bending Machine delivers features include angle presets, automatic clamping, and overload protection for operator safety. Optional conveyor-fed loading systems streamline high-volume tasks in shipbuilding, construction, and automotive industries. With quick-change tooling and minimal setup time, this machine enhances productivity while maintaining stringent quality standards for structural and decorative components. The machine can process sheets with span of up to 4 meters and 20 mm thickness.",
+      "videoUrl": "",
+      "gallery": [
+        {
+          "id": "sheet-plate-bending-machine-gallery-1",
+          "sourcePath": "../images/Sheet Bending Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [],
+      "specRows": [],
+      "applicationMaterials": [],
+      "applicationIndustries": []
+    },
+    {
+      "slug": "manual-paper-baling-machine",
+      "title": "Manual paper baling machine",
+      "categoryName": "Special Purpose Machines",
+      "categorySlug": "special-purpose-machines",
+      "tagline": "Compact, Efficient, and Built for Small-Scale Recycling",
+      "introDescription": "A compact, user-friendly solution for recycling facilities, this manual baling machine efficiently compresses paper, cardboard, and lightweight plastics into dense, stackable bales. Constructed with reinforced steel frames and a heavy-duty compression chamber, it handles volumes up to 500 kg with an adjustable lever system for customizable bale sizes. Ergonomic handles and safety locks ensure easy operation and prevent accidental release. Portable and maintenance-free, it optimizes storage space and reduces transportation costs for small to medium enterprises.",
+      "videoUrl": "https://www.youtube.com/watch?v=qZm_yNlncs8&list=PL0HiGy1JO9LHUZOR3pLKlErnsftIGL-VE&index=32",
+      "gallery": [
+        {
+          "id": "manual-paper-baling-machine-gallery-1",
+          "sourcePath": "../images/Manual Paper Baler Machine.jpg"
+        }
+      ],
+      "benefits": [],
+      "legacyBenifits": [
+        "Reinforced Steel Frame",
+        "Adjustable Lever System",
+        "Heavy-Duty Compression Chamber",
+        "Ergonomic Design"
+      ],
+      "specRows": [
+        {
+          "specLabel": "Max Bale Weight",
+          "specValue": "500 Kg"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "45 Hp"
+        },
+        {
+          "specLabel": "Max Bale Weight",
+          "specValue": "Custom Size"
+        },
+        {
+          "specLabel": "Motor Power",
+          "specValue": "As per req"
+        }
+      ],
+      "applicationMaterials": [
+        "Paper: Office waste, newspapers, magazines.",
+        "Cardboard: Corrugated boxes, packaging materials.",
+        "Plastics: PET bottles, HDPE containers, plastic films."
+      ],
+      "applicationIndustries": [
+        "Small Recycling facilities",
+        "E-commerce warehouse",
+        "City Scale recyclers",
+        "Industrial recyclers"
+      ]
+    }
+  ],
+  "navbar": {
+    "logoPath": "../images/logo.png",
+    "navLinks": [
+      {
+        "label": "Home",
+        "url": "/"
+      },
+      {
+        "label": "About",
+        "url": "/about"
+      },
+      {
+        "label": "Contact",
+        "url": "/contact"
+      }
+    ],
+    "socialLinks": [
+      {
+        "label": "YouTube",
+        "url": "https://www.youtube.com/@RanganiEngineeringPvtLtd",
+        "iconPath": "../images/youtube.png"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/rangani_engineering_pvt_ltd",
+        "iconPath": "../images/insta.png"
+      },
+      {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/people/Rangani-Engineering-Pvt-Ltd/100063895899990/",
+        "iconPath": "../images/face.png"
+      }
+    ],
+    "contactPhone": "+91 8000920222",
+    "contactEmail": "mail@ranganiindia.com",
+    "brochureLabel": "Get Brochure",
+    "brochureUrl": "/Rangani Brochure.pdf"
+  },
+  "app": {
+    "promoDelayMs": 5000,
+    "promoAutoRotateMs": 3000,
+    "promoImages": [
+      {
+        "id": "promo-image-1",
+        "sourcePath": "./images/promo1.jpg"
+      },
+      {
+        "id": "promo-image-2",
+        "sourcePath": "./images/promo2.jpg"
+      }
+    ]
+  },
+  "conflicts": [
+    {
+      "severity": "warning",
+      "title": "About page founding year conflict",
+      "description": "Found multiple founding years in About content: 1981, 1991.",
+      "sourceFiles": [
+        "../src/pages/AboutUs.jsx"
+      ],
+      "fieldPaths": [
+        "about.storyParagraphs"
+      ],
+      "suggestedAction": "Confirm a single canonical founding year before importing page content.",
+      "id": "extract-1"
+    },
+    {
+      "severity": "warning",
+      "title": "Malformed product field name",
+      "description": "20 products use legacy field \"benifits\" instead of \"benefits\".",
+      "sourceFiles": [
+        "../src/pages/ProductData.js"
+      ],
+      "fieldPaths": [
+        "products[*].benifits"
+      ],
+      "suggestedAction": "Validate normalized benefits arrays for all affected products before import.",
+      "id": "extract-2"
+    },
+    {
+      "severity": "info",
+      "title": "Missing footer source detail",
+      "description": "Footer content source was not included in the approved legacy input scope.",
+      "sourceFiles": [
+        "../src/Components/Navbar.js"
+      ],
+      "fieldPaths": [
+        "global.footer"
+      ],
+      "suggestedAction": "Provide footer source file or define footer options manually in WordPress.",
+      "id": "extract-3"
+    },
+    {
+      "severity": "warning",
+      "title": "Duplicated contact form logic",
+      "description": "Contact form implementation exists in both HomePage and ContactUs legacy files.",
+      "sourceFiles": [
+        "../src/pages/HomePage.jsx",
+        "../src/pages/ContactUs.jsx"
+      ],
+      "fieldPaths": [
+        "home.contactForm",
+        "contact.form"
+      ],
+      "suggestedAction": "Merge to a single canonical form model before import.",
+      "id": "extract-4"
+    }
+  ]
+}

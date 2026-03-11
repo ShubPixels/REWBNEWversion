@@ -442,6 +442,9 @@ function detectBlockKey(block: WpPageBlock): FlexibleBlockKey | null {
   if (block.fieldGroupName) {
     candidates.push(block.fieldGroupName);
   }
+  if (block.layoutKey) {
+    candidates.push(block.layoutKey);
+  }
 
   const rawCandidateKeys = [
     "acfFcLayout",

@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-03-11T13:21:44.006Z",
+  "conflicts": [
+    {
+      "severity": "warning",
+      "title": "About page founding year conflict",
+      "description": "Found multiple founding years in About content: 1981, 1991.",
+      "sourceFiles": [
+        "../src/pages/AboutUs.jsx"
+      ],
+      "fieldPaths": [
+        "about.storyParagraphs"
+      ],
+      "suggestedAction": "Confirm a single canonical founding year before importing page content.",
+      "id": "extract-1"
+    },
+    {
+      "severity": "warning",
+      "title": "Malformed product field name",
+      "description": "20 products use legacy field \"benifits\" instead of \"benefits\".",
+      "sourceFiles": [
+        "../src/pages/ProductData.js"
+      ],
+      "fieldPaths": [
+        "products[*].benifits"
+      ],
+      "suggestedAction": "Validate normalized benefits arrays for all affected products before import.",
+      "id": "extract-2"
+    },
+    {
+      "severity": "info",
+      "title": "Missing footer source detail",
+      "description": "Footer content source was not included in the approved legacy input scope.",
+      "sourceFiles": [
+        "../src/Components/Navbar.js"
+      ],
+      "fieldPaths": [
+        "global.footer"
+      ],
+      "suggestedAction": "Provide footer source file or define footer options manually in WordPress.",
+      "id": "extract-3"
+    },
+    {
+      "severity": "warning",
+      "title": "Duplicated contact form logic",
+      "description": "Contact form implementation exists in both HomePage and ContactUs legacy files.",
+      "sourceFiles": [
+        "../src/pages/HomePage.jsx",
+        "../src/pages/ContactUs.jsx"
+      ],
+      "fieldPaths": [
+        "home.contactForm",
+        "contact.form"
+      ],
+      "suggestedAction": "Merge to a single canonical form model before import.",
+      "id": "extract-4"
+    },
+    {
+      "severity": "warning",
+      "title": "Missing category archive hero images",
+      "description": "4 categories require archive hero image mapping.",
+      "sourceFiles": [
+        "../src/pages/CategoriesPage.jsx"
+      ],
+      "fieldPaths": [
+        "product-categories[*].archive_hero_image"
+      ],
+      "suggestedAction": "Assign archive hero media before importing taxonomy content.",
+      "id": "build-5"
+    },
+    {
+      "severity": "info",
+      "title": "Product CTA placeholders remain",
+      "description": "21 products have placeholder CTA fields.",
+      "sourceFiles": [
+        "../src/pages/ProductData.js"
+      ],
+      "fieldPaths": [
+        "products[*].cta_label",
+        "products[*].cta_url"
+      ],
+      "suggestedAction": "Set product-level CTA label and URL values before publish.",
+      "id": "build-6"
+    },
+    {
+      "severity": "info",
+      "title": "Application industry data incomplete",
+      "description": "6 products are missing application industry mappings.",
+      "sourceFiles": [
+        "../src/pages/ProductData.js"
+      ],
+      "fieldPaths": [
+        "products[*].application_industries"
+      ],
+      "suggestedAction": "Populate missing application industries before import.",
+      "id": "build-7"
+    },
+    {
+      "severity": "info",
+      "title": "Category structure mismatch",
+      "description": "1 service category contain no products and rely on empty-state taxonomy rendering.",
+      "sourceFiles": [
+        "../src/pages/CategoriesPage.jsx",
+        "../src/pages/ProductData.js"
+      ],
+      "fieldPaths": [
+        "product-categories[*].is_service_category",
+        "product-categories[*].empty_state_heading"
+      ],
+      "suggestedAction": "Review service-only category settings and confirm empty-state copy before import.",
+      "id": "build-8"
+    }
+  ],
+  "summary": {
+    "categories": 4,
+    "products": 21,
+    "conflicts": 8
+  }
+}

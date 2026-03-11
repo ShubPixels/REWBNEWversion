@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "industrial-machines",
+    "name": "Industrial Machines",
+    "short_description": "Heavy-duty presses and production equipment engineered for uptime, precision and low maintenance.",
+    "card_image": "../images/PHOTO EDIT 21.png",
+    "archive_hero_image": "__MISSING__",
+    "cta_label": "Explore Category",
+    "cta_url": "__MISSING__",
+    "is_service_category": false,
+    "empty_state_heading": "__MISSING__",
+    "empty_state_text": "__MISSING__",
+    "related_legacy_product_slugs": [
+      "ring-rolling-machine",
+      "cold-shearing-machine",
+      "heavy-duty-lathe-machine",
+      "number-punching-machine",
+      "sheet-slitting-machine"
+    ],
+    "source_files": [
+      "../src/pages/CategoriesPage.jsx",
+      "../src/pages/ProductData.js"
+    ],
+    "manual_review_fields": [
+      "archive_hero_image",
+      "cta_url"
+    ]
+  },
+  {
+    "slug": "manufacturing-services",
+    "name": "Manufacturing Services",
+    "short_description": "End‑to‑end build: forging, casting, CNC, fabrication, assembly, QA and global delivery to spec.",
+    "card_image": "../images/manufaclogo_CTP.png",
+    "archive_hero_image": "__MISSING__",
+    "cta_label": "Discuss Your Project",
+    "cta_url": "/contact",
+    "is_service_category": true,
+    "empty_state_heading": "Service Category",
+    "empty_state_text": "This category is service-led and does not currently expose product cards.",
+    "related_legacy_product_slugs": [],
+    "source_files": [
+      "../src/pages/CategoriesPage.jsx",
+      "../src/pages/ProductData.js"
+    ],
+    "manual_review_fields": [
+      "archive_hero_image",
+      "cta_url"
+    ]
+  },
+  {
+    "slug": "special-purpose-machines",
+    "name": "Special Purpose Machines",
+    "short_description": "When off‑the‑shelf falls short, we build to your process – hydraulics + automation, delivered with documentation and training.",
+    "card_image": "../images/DIPIPE.webp",
+    "archive_hero_image": "__MISSING__",
+    "cta_label": "Explore Category",
+    "cta_url": "__MISSING__",
+    "is_service_category": false,
+    "empty_state_heading": "__MISSING__",
+    "empty_state_text": "__MISSING__",
+    "related_legacy_product_slugs": [
+      "di-pipe-breaking-machine",
+      "pipe-hydrotest-machine",
+      "big-pipe-gauging-and-sizing-machine",
+      "hydraulic-press-(customized)",
+      "sheet-plate-bending-machine",
+      "manual-paper-baling-machine"
+    ],
+    "source_files": [
+      "../src/pages/CategoriesPage.jsx",
+      "../src/pages/ProductData.js"
+    ],
+    "manual_review_fields": [
+      "archive_hero_image",
+      "cta_url"
+    ]
+  },
+  {
+    "slug": "waste-management",
+    "name": "Waste Management",
+    "short_description": "High-pressure balers, shredders and cutting systems to compact, process and monetise scrap while lowering disposal costs.",
+    "card_image": "../images/3 Action Scrap Baling Press.png",
+    "archive_hero_image": "__MISSING__",
+    "cta_label": "Explore Category",
+    "cta_url": "__MISSING__",
+    "is_service_category": false,
+    "empty_state_heading": "__MISSING__",
+    "empty_state_text": "__MISSING__",
+    "related_legacy_product_slugs": [
+      "triple-action-scrap-baling-press",
+      "double-action-scrap-baling-press",
+      "pet-bottle-baling-press",
+      "continuous-baling-machine",
+      "continuous-scrapping-machine",
+      "shredder-machine",
+      "jumbo-scrap-baling-press",
+      "car-baler-machine",
+      "bid-breaking-machine",
+      "scrap-shearing-machine-(kechi)"
+    ],
+    "source_files": [
+      "../src/pages/CategoriesPage.jsx",
+      "../src/pages/ProductData.js"
+    ],
+    "manual_review_fields": [
+      "archive_hero_image",
+      "cta_url"
+    ]
+  }
+]

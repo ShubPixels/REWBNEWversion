@@ -1,0 +1,141 @@
+{
+  "slug": "about",
+  "title": "About Us",
+  "uri": "/about",
+  "flexibleBlocks": [
+    {
+      "blockKey": "page_intro",
+      "data": {
+        "title": "Leading the Future: Innovating Sustainability for a Cleaner, <br className=\"hidden md:block\" /> <span className=\"text-emerald-400\">Greener World.",
+        "description": "Legacy About content normalized from CRA source."
+      }
+    },
+    {
+      "blockKey": "split_content_media",
+      "data": {
+        "title": "Our Story",
+        "description": "Established in 1981, we have engineered over 600 unique machines, ranging from compact equipment to large-scale industrial machinery. With a client base that includes top MNCs, government entities worldwide and numerous SMEs, we deliver solutions that rein in quality, simplicity, and durability.",
+        "body": "Our offerings encompass cutting-edge solutions for recycling, waste management, and heavy-duty industrial machinery. Driven by Hydraulics and Automation systems, we are committed to delivering engineering solutions that exceed client expectations.",
+        "media": {
+          "sourcePath": "../images/our_story.png"
+        }
+      }
+    },
+    {
+      "blockKey": "feature_cards_grid",
+      "data": {
+        "title": "Why Choose Us",
+        "cards": [
+          {
+            "title": "Our Vision",
+            "description": "To be the world's leading provider of advanced engineering solutions, specializing in machinery that promotes sustainability and operational excellence. </motion.p> </motion.div> {/* Mission Section */} <motion.div className=",
+            "icon": "vision"
+          },
+          {
+            "title": "Our Mission",
+            "description": "To engineer innovative and sustainable solutions for waste management and industrial applications, providing reliable and efficient machinery to enhance operational efficiency for our clients worldwide. </motion.p> </motion.div> {/* Quality and Sustainability Section */} <motion.div className=",
+            "icon": "mission"
+          },
+          {
+            "title": "Quality and Sustainability",
+            "description": "Our Philosophy is simple: Build machines that last. We prioritize durability and build quality, ensuring each machine we produce withstand the test of time and environment. This emphasis on quality has landed us with multiple MNC's & government projects overseas, and are recognized as top manufacturer and exporter by government of India. </motion.p> </motion.div> </div> {/* Right Column */} <motion.div className=",
+            "icon": "quality"
+          }
+        ]
+      }
+    },
+    {
+      "blockKey": "service_rows_alternating",
+      "data": {
+        "title": "What We Do",
+        "rows": [
+          {
+            "title": "Waste Management & Scrap Processing Machinery",
+            "description": "We build the muscle behind recycling industries. Our hydraulic baling presses compact scrap metal into dense, transport-ready blocks. Shredders tear through tires, e-waste, and industrial byproducts. Hydraulic breaking machines dismantle outdated components and infrastructural wastes, while scrap cutting systems slice through thick steel like butter.",
+            "image": {
+              "sourcePath": "../images/Waste management.jpg"
+            }
+          },
+          {
+            "title": "Industrial Equipment & Heavy Machinery Solutions",
+            "description": "Our industrial equipment division designs and manufactures robust machinery for demanding environments. From custom conveyor systems to specialized processing equipment, we engineer solutions that enhance productivity while reducing operational costs. Our machines are built to withstand harsh conditions and deliver consistent performance for years of reliable service.",
+            "image": {
+              "sourcePath": "../images/What_WE_2.png"
+            }
+          },
+          {
+            "title": "Sustainable Technologies for Eco-friendly Manufacturing",
+            "description": "We pioneer green manufacturing technologies that reduce environmental impact without compromising performance. Our energy-efficient systems minimize power consumption while maximizing output. From water recycling systems to emissions control solutions, we help industries transition to more sustainable operational models that meet increasingly stringent environmental regulations.",
+            "image": {
+              "sourcePath": "../images/collaboration for sustainable future.png"
+            }
+          },
+          {
+            "title": "Special-Purpose Machinery & Custom Automation",
+            "description": "When off-the-shelf equipment can’t match your process, we design, prototype, and build machines that do. Whether it’s a high-speed assembly cell, a test rig for critical components, or a compact line retrofit, our team integrates hydraulics, motion control, and PLC logic to meet exact cycle-time and quality targets. Each project is delivered with full documentation, operator training, and lifecycle support—putting purpose-built performance directly on your factory floor.",
+            "image": {
+              "sourcePath": "../images/Special purpose _ custom machines.jpeg"
+            }
+          },
+          {
+            "title": "Precision Manufacturing Services Forging, Casting & CNC Machining",
+            "description": "Beyond finished machines, we supply the parts that power them. Tight process controls ensure metallurgical integrity, while in-house heat treatment and surface finishing cut lead times. Learn more by posting about your specific requirements.",
+            "image": {
+              "sourcePath": "../images/manufacturing services.jpg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "blockKey": "awards_grid",
+      "data": {
+        "title": "Our Achievements",
+        "awards": [
+          {
+            "title": "'Star Performer'",
+            "image": {
+              "sourcePath": "../images/Awards.jpg"
+            }
+          },
+          {
+            "title": "'National Rattan Award'",
+            "image": {
+              "sourcePath": "../images/DSC_0023.JPG"
+            }
+          },
+          {
+            "title": "'Pride Of India'",
+            "image": {
+              "sourcePath": "../images/DSC_0022.JPG"
+            }
+          },
+          {
+            "title": "'IOBRD-2007'",
+            "image": {
+              "sourcePath": "../images/DSC_0020.JPG"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "blockKey": "cta_banner",
+      "data": {
+        "title": "Build Beyond Ordinary",
+        "description": "At Rangani Engineering, we engineer legacies.",
+        "primaryCta": {
+          "label": "Email Us",
+          "url": "/contact"
+        }
+      }
+    }
+  ],
+  "seo": {
+    "metaTitle": "About | Rangani Engineering",
+    "metaDescription": "Legacy About page content normalized for WordPress flexible content import."
+  },
+  "sourceFiles": [
+    "../src/pages/AboutUs.jsx"
+  ]
+}

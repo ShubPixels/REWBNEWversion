@@ -1,14 +1,16 @@
 import {
   GLOBAL_OPTIONS_FRAGMENT,
+  LINK_FIELDS_FRAGMENT,
   MEDIA_FRAGMENT,
   MENU_ITEM_FIELDS_FRAGMENT,
+  PAGE_BLOCK_FRAGMENT_DEFINITIONS,
   PAGE_BLOCKS_FRAGMENT,
   PRODUCT_FIELDS_FRAGMENT,
   SEO_FIELDS_FRAGMENT,
   TAXONOMY_FIELDS_FRAGMENT,
 } from "@/lib/wp/fragments";
 
-const PAGE_CORE_FIELDS = /* GraphQL */ `
+const NODE_CORE_FIELDS = /* GraphQL */ `
 id
 databaseId
 uri
@@ -22,6 +24,10 @@ featuredImage {
   }
 }
 ${SEO_FIELDS_FRAGMENT}
+`;
+
+const PAGE_CORE_FIELDS = /* GraphQL */ `
+${NODE_CORE_FIELDS}
 ${PAGE_BLOCKS_FRAGMENT}
 `;
 
@@ -32,10 +38,23 @@ slug
 uri
 name
 description
+taxonomyFields {
+  shortDescription
+  cardImage {
+    ...MediaFields
+  }
+  cta {
+    ${LINK_FIELDS_FRAGMENT}
+  }
+  ctaLabel
+  ctaUrl
+  ctaTarget
+  isServiceCategory
+}
 `;
 
 const PRODUCT_CORE_FIELDS = /* GraphQL */ `
-${PAGE_CORE_FIELDS}
+${NODE_CORE_FIELDS}
 ${PRODUCT_FIELDS_FRAGMENT}
 productCategories {
   nodes {
@@ -86,6 +105,7 @@ query GetPageByUri($uri: String!) {
   }
 }
 ${MEDIA_FRAGMENT}
+${PAGE_BLOCK_FRAGMENT_DEFINITIONS}
 `;
 
 export const GET_HOMEPAGE_QUERY = /* GraphQL */ `
@@ -95,6 +115,7 @@ query GetHomepage {
   }
 }
 ${MEDIA_FRAGMENT}
+${PAGE_BLOCK_FRAGMENT_DEFINITIONS}
 `;
 
 export const GET_PRODUCT_BY_SLUG_QUERY = /* GraphQL */ `
@@ -139,6 +160,7 @@ query GetProductCategories {
     }
   }
 }
+${MEDIA_FRAGMENT}
 `;
 
 export const GET_PRODUCT_RELATED_OVERRIDE_QUERY = /* GraphQL */ `
@@ -209,4 +231,5 @@ query GetPreviewNode($id: ID!, $idType: ContentNodeIdTypeEnum = DATABASE_ID) {
   }
 }
 ${MEDIA_FRAGMENT}
+${PAGE_BLOCK_FRAGMENT_DEFINITIONS}
 `;
