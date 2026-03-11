@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getSafeMediaAlt, getSafeMediaDimensions, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpLink, WpMedia } from "@/types/wp";
 
 export interface ProductCategoryHeroProps {
@@ -42,6 +43,10 @@ export default function ProductCategoryHero({
   cta,
   isServiceCategory,
 }: ProductCategoryHeroProps) {
+  const imageUrl = getSafeMediaUrl(heroImage);
+  const imageAlt = getSafeMediaAlt(heroImage, name);
+  const imageSize = getSafeMediaDimensions(heroImage, 1200, 900);
+
   return (
     <section className="border-b border-slate-200 bg-slate-50">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 md:grid-cols-2 md:items-center md:py-16">
@@ -56,12 +61,12 @@ export default function ProductCategoryHero({
         </div>
 
         <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white">
-          {heroImage ? (
+          {imageUrl ? (
             <Image
-              src={heroImage.url}
-              alt={heroImage.alt || name}
-              width={heroImage.width ?? 1200}
-              height={heroImage.height ?? 900}
+              src={imageUrl}
+              alt={imageAlt}
+              width={imageSize.width}
+              height={imageSize.height}
               className="h-full w-full object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
@@ -76,4 +81,3 @@ export default function ProductCategoryHero({
     </section>
   );
 }
-

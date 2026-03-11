@@ -51,9 +51,19 @@ if (explicitWordPressHostname) {
   configuredHostnames.add(explicitWordPressHostname);
 }
 
+const siteHostname = parseHostnameFromUrl(process.env.NEXT_PUBLIC_SITE_URL);
+if (siteHostname) {
+  configuredHostnames.add(siteHostname);
+}
+
 const wordPressBaseHostname = parseHostnameFromUrl(process.env.NEXT_PUBLIC_WORDPRESS_URL);
 if (wordPressBaseHostname) {
   configuredHostnames.add(wordPressBaseHostname);
+}
+
+const wordPressGraphqlHostname = parseHostnameFromUrl(process.env.WORDPRESS_GRAPHQL_ENDPOINT);
+if (wordPressGraphqlHostname) {
+  configuredHostnames.add(wordPressGraphqlHostname);
 }
 
 parseCsvHostnames(process.env.NEXT_PUBLIC_IMAGE_HOSTNAMES).forEach((hostname) => configuredHostnames.add(hostname));

@@ -1,5 +1,11 @@
+import "server-only";
+
 import { Resend } from "resend";
+import { getServerEnv } from "@/lib/env";
 import type { ContactPayload } from "@/lib/forms/contactSchema";
+
+const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+const TURNSTILE_TIMEOUT_MS = 8000;
 
 export interface ContactDeliveryResult {
   provider: "resend";
@@ -29,24 +35,16 @@ interface TurnstileSiteVerifyResponse {
   "error-codes"?: string[];
 }
 
+export type ContactServiceErrorCode = "misconfigured" | "provider_error";
+
 export class ContactServiceError extends Error {
-  constructor(message: string) {
-    super(message);
+  public readonly code: ContactServiceErrorCode;
+
+  constructor(code: ContactServiceErrorCode, message: string, cause?: unknown) {
+    super(message, { cause });
     this.name = "ContactServiceError";
+    this.code = code;
   }
-}
-
-function readRequiredEnv(name: string): string {
-  const value = process.env[name]?.trim();
-  if (!value) {
-    throw new ContactServiceError(`${name} is required for contact email delivery.`);
-  }
-  return value;
-}
-
-function readOptionalEnv(name: string): string | undefined {
-  const value = process.env[name]?.trim();
-  return value && value.length > 0 ? value : undefined;
 }
 
 function escapeHtml(value: string): string {
@@ -59,15 +57,8 @@ function escapeHtml(value: string): string {
 }
 
 function buildSubject(payload: ContactPayload, subjectPrefix?: string): string {
-  const base = payload.category
-    ? `New contact inquiry: ${payload.category}`
-    : "New contact inquiry";
-
-  if (!subjectPrefix) {
-    return base;
-  }
-
-  return `${subjectPrefix} ${base}`.trim();
+  const base = payload.category ? `New contact inquiry: ${payload.category}` : "New contact inquiry";
+  return subjectPrefix ? `${subjectPrefix} ${base}`.trim() : base;
 }
 
 function buildTextBody(payload: ContactPayload): string {
@@ -118,17 +109,22 @@ class ResendContactService implements ContactDeliveryService {
   }
 
   async send(payload: ContactPayload): Promise<ContactDeliveryResult> {
-    const response = await this.resend.emails.send({
-      from: this.fromEmail,
-      to: [this.toEmail],
-      replyTo: this.replyToEmail ? [this.replyToEmail] : [payload.email],
-      subject: buildSubject(payload, this.subjectPrefix),
-      text: buildTextBody(payload),
-      html: buildHtmlBody(payload),
-    });
+    let response;
+    try {
+      response = await this.resend.emails.send({
+        from: this.fromEmail,
+        to: [this.toEmail],
+        replyTo: this.replyToEmail ? [this.replyToEmail] : [payload.email],
+        subject: buildSubject(payload, this.subjectPrefix),
+        text: buildTextBody(payload),
+        html: buildHtmlBody(payload),
+      });
+    } catch (error) {
+      throw new ContactServiceError("provider_error", "Resend request failed.", error);
+    }
 
     if (response.error) {
-      throw new ContactServiceError(response.error.message);
+      throw new ContactServiceError("provider_error", response.error.message);
     }
 
     return {
@@ -138,65 +134,106 @@ class ResendContactService implements ContactDeliveryService {
   }
 }
 
+function getContactDeliveryConfig(): ResendContactServiceOptions {
+  const env = getServerEnv();
+
+  if (!env.resendApiKey || !env.contactFromEmail || !env.contactToEmail) {
+    throw new ContactServiceError(
+      "misconfigured",
+      "Contact delivery is not configured. Check RESEND_API_KEY, CONTACT_FROM_EMAIL, and CONTACT_TO_EMAIL.",
+    );
+  }
+
+  return {
+    apiKey: env.resendApiKey,
+    fromEmail: env.contactFromEmail,
+    toEmail: env.contactToEmail,
+    replyToEmail: env.contactReplyToEmail ?? undefined,
+    subjectPrefix: env.contactSubjectPrefix ?? undefined,
+  };
+}
+
 export function createContactDeliveryService(): ContactDeliveryService {
-  return new ResendContactService({
-    apiKey: readRequiredEnv("RESEND_API_KEY"),
-    fromEmail: readRequiredEnv("CONTACT_FROM_EMAIL"),
-    toEmail: readRequiredEnv("CONTACT_TO_EMAIL"),
-    replyToEmail: readOptionalEnv("CONTACT_REPLY_TO_EMAIL"),
-    subjectPrefix: readOptionalEnv("CONTACT_SUBJECT_PREFIX"),
-  });
+  return new ResendContactService(getContactDeliveryConfig());
 }
 
 export function isHoneypotTripped(payload: Pick<ContactPayload, "website">): boolean {
   return payload.website.trim().length > 0;
 }
 
+function parseTurnstileResponse(payload: unknown): TurnstileSiteVerifyResponse {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return {};
+  }
+
+  const record = payload as Record<string, unknown>;
+  return {
+    success: typeof record.success === "boolean" ? record.success : undefined,
+    "error-codes": Array.isArray(record["error-codes"])
+      ? record["error-codes"].filter((value): value is string => typeof value === "string")
+      : undefined,
+  };
+}
+
 export async function verifyTurnstileToken(
   token: string,
   remoteIp: string | null,
 ): Promise<TurnstileVerificationResult> {
-  const secretKey = process.env.TURNSTILE_SECRET_KEY?.trim();
+  const env = getServerEnv();
+  const secretKey = env.turnstileSecretKey;
 
   if (!secretKey) {
     return { ok: true, skipped: true, errorCodes: [] };
   }
 
-  if (!token.trim()) {
+  const trimmedToken = token.trim();
+  if (!trimmedToken) {
     return { ok: false, skipped: false, errorCodes: ["missing-input-response"] };
   }
 
   const body = new URLSearchParams({
     secret: secretKey,
-    response: token,
+    response: trimmedToken,
   });
 
   if (remoteIp?.trim()) {
     body.set("remoteip", remoteIp.trim());
   }
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), TURNSTILE_TIMEOUT_MS);
+
   try {
-    const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    const response = await fetch(TURNSTILE_VERIFY_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body,
       cache: "no-store",
+      signal: controller.signal,
     });
 
     if (!response.ok) {
       return { ok: false, skipped: false, errorCodes: [`http_${response.status}`] };
     }
 
-    const data = (await response.json()) as TurnstileSiteVerifyResponse;
+    const rawPayload = (await response.json()) as unknown;
+    const data = parseTurnstileResponse(rawPayload);
     const errorCodes = Array.isArray(data["error-codes"]) ? data["error-codes"] : [];
+
     return {
       ok: data.success === true,
       skipped: false,
       errorCodes,
     };
-  } catch {
+  } catch (error) {
+    if (error instanceof DOMException && error.name === "AbortError") {
+      return { ok: false, skipped: false, errorCodes: ["timeout"] };
+    }
     return { ok: false, skipped: false, errorCodes: ["request_failed"] };
+  } finally {
+    clearTimeout(timeoutId);
   }
 }
+

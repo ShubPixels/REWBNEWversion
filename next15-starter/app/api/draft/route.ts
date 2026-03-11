@@ -3,6 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import {
   extractPreviewLookupFromSearchParams,
   getPreviewNodeById,
+  hasPreviewLookupParams,
   isValidPreviewSecret,
   normalizeInternalRedirectPath,
   resolvePreviewRedirectPath,
@@ -55,36 +56,49 @@ function getRequestedUri(searchParams: RouteSearchParams): string | null {
   return null;
 }
 
+function jsonError(status: number, message: string) {
+  return NextResponse.json(
+    { ok: false, error: message },
+    {
+      status,
+      headers: { "Cache-Control": "no-store" },
+    },
+  );
+}
+
 export async function GET(request: NextRequest) {
   const secret = request.nextUrl.searchParams.get("secret");
-  if (!isValidPreviewSecret(secret)) {
-    return NextResponse.json(
-      { ok: false, error: "Invalid preview secret." },
-      {
-        status: 401,
-        headers: { "Cache-Control": "no-store" },
-      },
-    );
+  let secretIsValid = false;
+  try {
+    secretIsValid = isValidPreviewSecret(secret);
+  } catch {
+    return jsonError(500, "Preview mode is not configured on this deployment.");
+  }
+
+  if (!secretIsValid) {
+    return jsonError(401, "Invalid preview secret.");
   }
 
   const routeSearchParams = toRouteSearchParams(request.nextUrl.searchParams);
+  const hasLookupParams = hasPreviewLookupParams(routeSearchParams);
   const previewLookup = extractPreviewLookupFromSearchParams(routeSearchParams);
+  if (hasLookupParams && !previewLookup) {
+    return jsonError(400, "Invalid preview lookup parameters.");
+  }
 
   const previewNode = previewLookup
     ? await getPreviewNodeById(previewLookup.id, previewLookup.idType).catch(() => null)
     : null;
 
   if (previewLookup && !previewNode) {
-    return NextResponse.json(
-      { ok: false, error: "Preview node not found." },
-      {
-        status: 404,
-        headers: { "Cache-Control": "no-store" },
-      },
-    );
+    return jsonError(404, "Preview node not found.");
   }
 
   const requestedUri = getRequestedUri(routeSearchParams);
+  if (!previewLookup && !requestedUri) {
+    return jsonError(400, "Missing preview target. Provide a preview id or uri.");
+  }
+
   const requestedPath = requestedUri ? normalizeInternalRedirectPath(requestedUri) : null;
   const redirectPath = requestedPath ?? resolvePreviewRedirectPath(previewNode);
 

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getSafeMediaAlt, getSafeMediaDimensions, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpProductCardData } from "@/types/wp";
 
 export interface ProductCardProps {
@@ -27,17 +28,20 @@ function resolveProductHref(product: WpProductCardData): string {
 export default function ProductCard({ product, showExcerpt = true, ctaLabel = "View details" }: ProductCardProps) {
   const href = resolveProductHref(product);
   const excerpt = stripHtml(product.excerpt);
+  const imageUrl = getSafeMediaUrl(product.featuredImage);
+  const imageAlt = getSafeMediaAlt(product.featuredImage, product.title);
+  const imageSize = getSafeMediaDimensions(product.featuredImage, 900, 675);
 
   return (
     <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <Link href={href} className="block">
         <div className="relative aspect-[4/3] bg-slate-100">
-          {product.featuredImage ? (
+          {imageUrl ? (
             <Image
-              src={product.featuredImage.url}
-              alt={product.featuredImage.alt || product.title}
-              width={product.featuredImage.width ?? 900}
-              height={product.featuredImage.height ?? 675}
+              src={imageUrl}
+              alt={imageAlt}
+              width={imageSize.width}
+              height={imageSize.height}
               className="h-full w-full object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             />
@@ -54,4 +58,3 @@ export default function ProductCard({ product, showExcerpt = true, ctaLabel = "V
     </article>
   );
 }
-

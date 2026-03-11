@@ -140,6 +140,7 @@ async function fetchGlobalSettings(): Promise<WpGlobalSettingsData | null> {
     const data = await wpFetch<GetGlobalSettingsQuery>(GET_GLOBAL_SETTINGS_QUERY, {
       tags: [WP_TAGS.globalSettings],
       revalidate: WP_REVALIDATE_SECONDS.globals,
+      debugLabel: "global-settings",
     });
     return mapGlobalSettingsQuery(data);
   } catch {
@@ -148,19 +149,16 @@ async function fetchGlobalSettings(): Promise<WpGlobalSettingsData | null> {
 }
 
 async function fetchProductCategoryBySlug(slug: string): Promise<WpProductCategoryData | null> {
-  try {
-    const data = await wpFetch<GetProductCategoryBySlugQuery, GetProductCategoryBySlugVariables>(
-      GET_PRODUCT_CATEGORY_BY_SLUG_QUERY,
-      {
-        variables: { slug },
-        tags: [WP_TAGS.productCategory(slug)],
-        revalidate: WP_REVALIDATE_SECONDS.content,
-      },
-    );
-    return mapProductCategoryBySlugQuery(data);
-  } catch {
-    return null;
-  }
+  const data = await wpFetch<GetProductCategoryBySlugQuery, GetProductCategoryBySlugVariables>(
+    GET_PRODUCT_CATEGORY_BY_SLUG_QUERY,
+    {
+      variables: { slug },
+      tags: [WP_TAGS.productCategory(slug)],
+      revalidate: WP_REVALIDATE_SECONDS.content,
+      debugLabel: `product-category-by-slug:${slug}`,
+    },
+  );
+  return mapProductCategoryBySlugQuery(data);
 }
 
 async function fetchPreviewProductCategory(
@@ -194,6 +192,7 @@ async function fetchAllProductCategories(): Promise<WpProductCategorySummaryData
     const data = await wpFetch<GetProductCategoriesQuery>(GET_PRODUCT_CATEGORIES_QUERY, {
       tags: [WP_TAGS.productCategories],
       revalidate: WP_REVALIDATE_SECONDS.globals,
+      debugLabel: "product-categories-list",
     });
     return mapProductCategoriesQuery(data);
   } catch {
@@ -232,6 +231,8 @@ export async function generateMetadata({ params, searchParams }: ProductCategory
     fallbackTitle,
     fallbackDescription,
     canonicalPath: category?.uri || `/product-category/${normalizedSlug}`,
+    fallbackOpenGraphImageUrl:
+      category?.archiveHeroImage?.url ?? category?.heroImage?.url ?? category?.cardImage?.url ?? null,
   });
 }
 

@@ -13,7 +13,20 @@ function getRedirectTarget(request: NextRequest): string {
 
 export async function GET(request: NextRequest) {
   const secret = request.nextUrl.searchParams.get("secret");
-  if (!isValidPreviewSecret(secret)) {
+  let secretIsValid = false;
+  try {
+    secretIsValid = isValidPreviewSecret(secret);
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "Preview mode is not configured on this deployment." },
+      {
+        status: 500,
+        headers: { "Cache-Control": "no-store" },
+      },
+    );
+  }
+
+  if (!secretIsValid) {
     return NextResponse.json(
       { ok: false, error: "Invalid preview secret." },
       {

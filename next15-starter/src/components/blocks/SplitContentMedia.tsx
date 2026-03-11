@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getSafeMediaAlt, getSafeMediaDimensions, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpLink, WpMedia } from "@/types/wp";
 
 export interface SplitContentMediaData {
@@ -23,6 +24,9 @@ function isExternalLink(url: string): boolean {
 
 export default function SplitContentMedia({ data, blockId }: SplitContentMediaProps) {
   const directionClass = data.reverse ? "lg:flex-row-reverse" : "lg:flex-row";
+  const mediaUrl = getSafeMediaUrl(data.media);
+  const mediaAlt = getSafeMediaAlt(data.media, data.title);
+  const mediaSize = getSafeMediaDimensions(data.media, 960, 640);
 
   return (
     <section id={blockId} className="mx-auto w-full max-w-7xl px-4 py-16">
@@ -51,12 +55,12 @@ export default function SplitContentMedia({ data, blockId }: SplitContentMediaPr
         </div>
 
         <div className="relative flex-1 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
-          {data.media ? (
+          {mediaUrl ? (
             <Image
-              src={data.media.url}
-              alt={data.media.alt || data.title}
-              width={960}
-              height={640}
+              src={mediaUrl}
+              alt={mediaAlt}
+              width={mediaSize.width}
+              height={mediaSize.height}
               className="h-full w-full object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />

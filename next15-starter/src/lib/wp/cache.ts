@@ -6,6 +6,15 @@ export const WP_REVALIDATE_SECONDS = {
   sitemap: 600,
 } as const;
 
+export const WP_CACHE_STRATEGY = {
+  genericPages: "content",
+  products: "content",
+  productCategories: "content",
+  globalSettings: "globals",
+  menus: "menus",
+  sitemap: "sitemap",
+} as const;
+
 export const WP_TAGS = {
   globalSettings: "wp:global-settings",
   menus: "wp:menus",
@@ -20,6 +29,7 @@ export const WP_TAGS = {
 } as const;
 
 export const WP_PREVIEW_FETCH_OPTIONS = {
+  mode: "preview" as const,
   revalidate: false as const,
   cache: "no-store" as const,
 };

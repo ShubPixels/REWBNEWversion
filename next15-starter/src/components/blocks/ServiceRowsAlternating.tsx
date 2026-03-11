@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getSafeMediaAlt, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpLink, WpMedia } from "@/types/wp";
 
 export interface ServiceRowItem {
@@ -34,6 +35,8 @@ export default function ServiceRowsAlternating({ data, blockId }: ServiceRowsAlt
       <div className="space-y-6">
         {data.rows.map((row, index) => {
           const reverseClass = index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row";
+          const imageUrl = getSafeMediaUrl(row.image);
+          const imageAlt = getSafeMediaAlt(row.image, row.title);
 
           return (
             <article
@@ -41,10 +44,10 @@ export default function ServiceRowsAlternating({ data, blockId }: ServiceRowsAlt
               className={`flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm ${reverseClass}`}
             >
               <div className="relative h-72 flex-1 bg-slate-100">
-                {row.image ? (
+                {imageUrl ? (
                   <Image
-                    src={row.image.url}
-                    alt={row.image.alt || row.title}
+                    src={imageUrl}
+                    alt={imageAlt}
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"

@@ -7,14 +7,15 @@ export interface BuildSeoMetadataOptions {
   fallbackTitle?: string;
   fallbackDescription?: string;
   canonicalPath?: string;
+  fallbackOpenGraphImageUrl?: string | null;
 }
 
 function toAbsoluteUrl(urlOrPath: string): string {
-  try {
-    return new URL(urlOrPath).toString();
-  } catch {
-    return new URL(urlOrPath, siteConfig.url).toString();
+  const parsed = new URL(urlOrPath, siteConfig.url);
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+    throw new Error("Unsupported URL protocol.");
   }
+  return parsed.toString();
 }
 
 function cleanOrNull(value: string | null | undefined): string | null {
@@ -32,10 +33,25 @@ export function buildSeoMetadata(options: BuildSeoMetadataOptions = {}): Metadat
   const description =
     cleanOrNull(seo?.description) ?? cleanOrNull(options.fallbackDescription) ?? siteConfig.description;
 
+  let canonical: string | undefined;
   const canonicalSource = cleanOrNull(seo?.canonicalUrl) ?? cleanOrNull(options.canonicalPath);
-  const canonical = canonicalSource ? toAbsoluteUrl(canonicalSource) : undefined;
+  if (canonicalSource) {
+    try {
+      canonical = toAbsoluteUrl(canonicalSource);
+    } catch {
+      canonical = undefined;
+    }
+  }
 
-  const openGraphImageUrl = seo?.openGraphImage?.url ? toAbsoluteUrl(seo.openGraphImage.url) : undefined;
+  let openGraphImageUrl: string | undefined;
+  const openGraphSource = cleanOrNull(seo?.openGraphImage?.url) ?? cleanOrNull(options.fallbackOpenGraphImageUrl);
+  if (openGraphSource) {
+    try {
+      openGraphImageUrl = toAbsoluteUrl(openGraphSource);
+    } catch {
+      openGraphImageUrl = undefined;
+    }
+  }
 
   const robots =
     seo && (seo.noindex || seo.nofollow)

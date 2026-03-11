@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getSafeMediaAlt, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpLink, WpMedia } from "@/types/wp";
 
 export interface HeroShowcaseData {
@@ -45,14 +46,16 @@ function CtaLink({ link, variant }: { link: WpLink; variant: "primary" | "second
 export default function HeroShowcase({ data, blockId }: HeroShowcaseProps) {
   const textAlignClass = data.align === "center" ? "text-center" : "text-left";
   const containerAlign = data.align === "center" ? "items-center" : "items-start";
+  const backgroundImageUrl = getSafeMediaUrl(data.backgroundImage);
+  const backgroundImageAlt = getSafeMediaAlt(data.backgroundImage, data.title);
 
   return (
     <section id={blockId} className="relative overflow-hidden border-b border-slate-100 bg-slate-950 text-white">
-      {data.backgroundImage ? (
+      {backgroundImageUrl ? (
         <div className="absolute inset-0 opacity-30">
           <Image
-            src={data.backgroundImage.url}
-            alt={data.backgroundImage.alt || data.title}
+            src={backgroundImageUrl}
+            alt={backgroundImageAlt}
             fill
             className="object-cover"
             sizes="100vw"

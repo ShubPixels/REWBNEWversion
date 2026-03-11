@@ -1,4 +1,6 @@
 import Image from "next/image";
+import type { ReactElement } from "react";
+import { getSafeMediaAlt, getSafeMediaDimensions, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpMedia } from "@/types/wp";
 
 export interface ProductOverviewProps {
@@ -8,7 +10,36 @@ export interface ProductOverviewProps {
 }
 
 export default function ProductOverview({ introDescription, gallery, videoUrl }: ProductOverviewProps) {
-  const hasContent = introDescription.trim().length > 0 || gallery.length > 0 || Boolean(videoUrl);
+  const galleryItems = gallery
+    .slice(0, 6)
+    .map((media, index) => {
+      const imageUrl = getSafeMediaUrl(media);
+      const imageAlt = getSafeMediaAlt(media, "Product gallery image");
+      const imageSize = getSafeMediaDimensions(media, 900, 700);
+
+      if (!imageUrl) {
+        return null;
+      }
+
+      return (
+        <div
+          key={`${media.id}-${index}`}
+          className={`overflow-hidden rounded-xl border border-slate-200 ${index === 0 ? "col-span-2" : "col-span-1"}`}
+        >
+          <Image
+            src={imageUrl}
+            alt={imageAlt}
+            width={imageSize.width}
+            height={imageSize.height}
+            className="h-full w-full object-cover"
+            sizes={index === 0 ? "(max-width: 1024px) 100vw, 45vw" : "(max-width: 1024px) 50vw, 22vw"}
+          />
+        </div>
+      );
+    })
+    .filter((item): item is ReactElement => item !== null);
+
+  const hasContent = introDescription.trim().length > 0 || galleryItems.length > 0 || Boolean(videoUrl);
   if (!hasContent) {
     return null;
   }
@@ -31,27 +62,7 @@ export default function ProductOverview({ introDescription, gallery, videoUrl }:
           ) : null}
         </div>
 
-        {gallery.length > 0 ? (
-          <div className="grid grid-cols-2 gap-3">
-            {gallery.slice(0, 6).map((media, index) => (
-              <div
-                key={`${media.id}-${index}`}
-                className={`overflow-hidden rounded-xl border border-slate-200 ${
-                  index === 0 ? "col-span-2" : "col-span-1"
-                }`}
-              >
-                <Image
-                  src={media.url}
-                  alt={media.alt || "Product gallery image"}
-                  width={media.width ?? 900}
-                  height={media.height ?? 700}
-                  className="h-full w-full object-cover"
-                  sizes={index === 0 ? "(max-width: 1024px) 100vw, 45vw" : "(max-width: 1024px) 50vw, 22vw"}
-                />
-              </div>
-            ))}
-          </div>
-        ) : null}
+        {galleryItems.length > 0 ? <div className="grid grid-cols-2 gap-3">{galleryItems}</div> : null}
       </div>
     </section>
   );

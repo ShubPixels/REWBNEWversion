@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getSafeMediaAlt, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpMedia } from "@/types/wp";
 
 export interface FeatureCardItem {
@@ -20,17 +21,19 @@ export interface FeatureCardsGridProps {
 }
 
 function CardVisual({ item }: { item: FeatureCardItem }) {
-  if (item.image) {
+  const imageUrl = getSafeMediaUrl(item.image);
+
+  if (imageUrl) {
     return (
       <div className="relative mb-4 h-14 w-14 overflow-hidden rounded bg-slate-100">
-        <Image src={item.image.url} alt={item.image.alt || item.title} fill className="object-cover" sizes="56px" />
+        <Image src={imageUrl} alt={getSafeMediaAlt(item.image, item.title)} fill className="object-cover" sizes="56px" />
       </div>
     );
   }
 
   return (
     <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded bg-slate-900 text-lg text-white">
-      {item.icon || "•"}
+      {item.icon || "*"}
     </span>
   );
 }
@@ -58,3 +61,4 @@ export default function FeatureCardsGrid({ data, blockId }: FeatureCardsGridProp
     </section>
   );
 }
+

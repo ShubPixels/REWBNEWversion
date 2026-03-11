@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getSafeMediaAlt, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpMedia } from "@/types/wp";
 
 export interface AwardItem {
@@ -31,10 +32,10 @@ export default function AwardsGrid({ data, blockId }: AwardsGridProps) {
           {data.awards.map((award, index) => (
             <article key={`${award.title}-${index + 1}`} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="relative mb-4 h-44 overflow-hidden rounded-lg bg-slate-100">
-                {award.image ? (
+                {getSafeMediaUrl(award.image) ? (
                   <Image
-                    src={award.image.url}
-                    alt={award.image.alt || award.title}
+                    src={getSafeMediaUrl(award.image)!}
+                    alt={getSafeMediaAlt(award.image, award.title)}
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"

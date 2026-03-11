@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import MenuTree from "@/components/layout/MenuTree";
+import { getSafeMediaAlt, getSafeMediaDimensions, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpLink, WpMedia, WpMenuItemData } from "@/types/wp";
 
 interface SiteHeaderProps {
@@ -26,6 +27,11 @@ function mapLinksToMenuItems(links: WpLink[]): WpMenuItemData[] {
   }));
 }
 
+function toTelephoneHref(phone: string): string | null {
+  const normalized = phone.replace(/[^\d+]/g, "");
+  return normalized.length > 0 ? `tel:${normalized}` : null;
+}
+
 export default function SiteHeader({
   brandName,
   brandTagline,
@@ -36,6 +42,10 @@ export default function SiteHeader({
   contactPhone,
 }: SiteHeaderProps) {
   const menuItems = primaryMenu.length > 0 ? primaryMenu : mapLinksToMenuItems(fallbackLinks);
+  const logoUrl = getSafeMediaUrl(brandLogo);
+  const logoAlt = getSafeMediaAlt(brandLogo, brandName);
+  const logoSize = getSafeMediaDimensions(brandLogo, 44, 44);
+  const phoneHref = toTelephoneHref(contactPhone);
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -44,9 +54,13 @@ export default function SiteHeader({
           <span className="truncate">{brandTagline}</span>
           <div className="flex items-center gap-4">
             {contactPhone ? (
-              <a href={`tel:${contactPhone}`} className="hover:text-slate-900">
-                {contactPhone}
-              </a>
+              phoneHref ? (
+                <a href={phoneHref} className="hover:text-slate-900">
+                  {contactPhone}
+                </a>
+              ) : (
+                <span>{contactPhone}</span>
+              )
             ) : null}
             {contactEmail ? (
               <a href={`mailto:${contactEmail}`} className="hover:text-slate-900">
@@ -58,12 +72,12 @@ export default function SiteHeader({
       </div>
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-4 py-4">
         <Link href="/" className="inline-flex items-center gap-3 text-slate-900">
-          {brandLogo ? (
+          {logoUrl ? (
             <Image
-              src={brandLogo.url}
-              alt={brandLogo.alt || brandName}
-              width={44}
-              height={44}
+              src={logoUrl}
+              alt={logoAlt}
+              width={logoSize.width}
+              height={logoSize.height}
               className="h-11 w-11 rounded object-cover"
             />
           ) : (

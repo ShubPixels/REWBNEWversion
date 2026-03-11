@@ -8,11 +8,11 @@ interface FloatingContactButtonsProps {
 }
 
 function sanitizePhone(value: string): string {
-  return value.replace(/[^\d]/g, "");
+  return value.replace(/[^\d+]/g, "");
 }
 
 function buildWhatsAppUrl(phone: string, defaultMessage: string): string | null {
-  const digits = sanitizePhone(phone);
+  const digits = sanitizePhone(phone).replace(/^\+/, "");
   if (!digits) {
     return null;
   }
@@ -38,6 +38,7 @@ export default function FloatingContactButtons({ contact }: FloatingContactButto
     () => buildWhatsAppUrl(contact.whatsappPhone, contact.whatsappDefaultMessage),
     [contact.whatsappPhone, contact.whatsappDefaultMessage],
   );
+  const telPhone = useMemo(() => sanitizePhone(contact.contactPhone), [contact.contactPhone]);
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
@@ -49,18 +50,18 @@ export default function FloatingContactButtons({ contact }: FloatingContactButto
           className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-white shadow-lg hover:bg-emerald-600"
           aria-label="Contact on WhatsApp"
         >
-          <span aria-hidden="true">💬</span>
+          <span aria-hidden="true">WA</span>
           WhatsApp
         </a>
       ) : null}
 
-      {contact.contactPhone ? (
+      {telPhone ? (
         <a
-          href={`tel:${contact.contactPhone}`}
+          href={`tel:${telPhone}`}
           className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-lg hover:bg-slate-700"
           aria-label="Call us"
         >
-          <span aria-hidden="true">📞</span>
+          <span aria-hidden="true">Call</span>
           Call
         </a>
       ) : null}
@@ -71,7 +72,7 @@ export default function FloatingContactButtons({ contact }: FloatingContactButto
           className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg ring-1 ring-slate-300 hover:bg-slate-50"
           aria-label="Email us"
         >
-          <span aria-hidden="true">✉</span>
+          <span aria-hidden="true">Email</span>
           Email
         </a>
       ) : null}
@@ -85,10 +86,11 @@ export default function FloatingContactButtons({ contact }: FloatingContactButto
           className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-lg ring-1 ring-slate-300 hover:bg-slate-50"
           aria-label="Back to top"
         >
-          <span aria-hidden="true">↑</span>
+          <span aria-hidden="true">Up</span>
           Top
         </button>
       ) : null}
     </div>
   );
 }
+

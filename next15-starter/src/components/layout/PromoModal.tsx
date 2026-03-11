@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { getSafeMediaAlt, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpPromoModalData } from "@/types/wp";
 
 interface PromoModalProps {
@@ -49,6 +50,8 @@ export default function PromoModal({ promo }: PromoModalProps) {
   }, [isOpen, promo.autoRotateMs, slides.length]);
 
   const activeSlide = useMemo(() => slides[activeIndex] ?? null, [activeIndex, slides]);
+  const activeSlideImageUrl = getSafeMediaUrl(activeSlide?.image);
+  const activeSlideImageAlt = getSafeMediaAlt(activeSlide?.image, activeSlide?.heading || "Promotional slide");
 
   if (!canShow || !isOpen || !activeSlide) {
     return null;
@@ -69,14 +72,14 @@ export default function PromoModal({ promo }: PromoModalProps) {
           className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-1 text-sm text-slate-700 shadow hover:text-slate-950"
           aria-label="Close"
         >
-          ✕
+          X
         </button>
 
-        {activeSlide.image ? (
+        {activeSlideImageUrl ? (
           <div className="relative h-64 w-full">
             <Image
-              src={activeSlide.image.url}
-              alt={activeSlide.image.alt || activeSlide.heading || "Promotional slide"}
+              src={activeSlideImageUrl}
+              alt={activeSlideImageAlt}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 640px"
@@ -128,3 +131,4 @@ export default function PromoModal({ promo }: PromoModalProps) {
     </div>
   );
 }
+

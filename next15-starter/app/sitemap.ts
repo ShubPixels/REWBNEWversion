@@ -117,6 +117,7 @@ async function fetchAllUris<TQuery>(
   query: string,
   selectConnection: (data: TQuery) => UriConnection | null | undefined,
   tag: string,
+  debugLabel: string,
 ): Promise<UriNode[]> {
   const nodes: UriNode[] = [];
   let after: string | null = null;
@@ -126,6 +127,7 @@ async function fetchAllUris<TQuery>(
       variables: { first: PAGE_SIZE, after },
       tags: [tag],
       revalidate: WP_REVALIDATE_SECONDS.sitemap,
+      debugLabel,
     });
 
     const connection = selectConnection(data);
@@ -183,12 +185,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     const [pages, products, categories] = await Promise.all([
-      fetchAllUris<SitemapPagesQuery>(SITEMAP_PAGES_QUERY, (data) => data.pages, WP_TAGS.sitemapPages),
-      fetchAllUris<SitemapProductsQuery>(SITEMAP_PRODUCTS_QUERY, (data) => data.products, WP_TAGS.sitemapProducts),
+      fetchAllUris<SitemapPagesQuery>(
+        SITEMAP_PAGES_QUERY,
+        (data) => data.pages,
+        WP_TAGS.sitemapPages,
+        "sitemap-pages",
+      ),
+      fetchAllUris<SitemapProductsQuery>(
+        SITEMAP_PRODUCTS_QUERY,
+        (data) => data.products,
+        WP_TAGS.sitemapProducts,
+        "sitemap-products",
+      ),
       fetchAllUris<SitemapProductCategoriesQuery>(
         SITEMAP_PRODUCT_CATEGORIES_QUERY,
         (data) => data.productCategories,
         WP_TAGS.sitemapProductCategories,
+        "sitemap-product-categories",
       ),
     ]);
 
@@ -240,7 +253,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
     return mergeEntries([...baseEntries, ...pageEntries, ...productEntries, ...categoryEntries]);
-  } catch {
+  } catch (error) {
+    if (process.env.NODE_ENV !== "production") {
+      console.error("[sitemap] failed_to_build_dynamic_entries", {
+        message: error instanceof Error ? error.message : "unknown_error",
+      });
+    }
     return baseEntries;
   }
 }

@@ -75,6 +75,7 @@ async function fetchGlobalSeoDefaults(): Promise<WpGlobalSettingsData | null> {
     const data = await wpFetch<GetGlobalSettingsQuery>(GET_GLOBAL_SETTINGS_QUERY, {
       tags: [WP_TAGS.globalSettings],
       revalidate: WP_REVALIDATE_SECONDS.globals,
+      debugLabel: "global-seo-defaults",
     });
     return mapGlobalSettingsQuery(data);
   } catch {
@@ -86,19 +87,16 @@ async function fetchPageByUri(slug: string[] | undefined): Promise<WpPageData | 
   const candidates = buildCandidateUris(slug);
 
   for (const uri of candidates) {
-    try {
-      const data = await wpFetch<GetPageByUriQuery, GetPageByUriVariables>(GET_PAGE_BY_URI_QUERY, {
-        variables: { uri },
-        tags: [WP_TAGS.page(uri)],
-        revalidate: WP_REVALIDATE_SECONDS.content,
-      });
+    const data = await wpFetch<GetPageByUriQuery, GetPageByUriVariables>(GET_PAGE_BY_URI_QUERY, {
+      variables: { uri },
+      tags: [WP_TAGS.page(uri)],
+      revalidate: WP_REVALIDATE_SECONDS.content,
+      debugLabel: `page-by-uri:${uri}`,
+    });
 
-      const page = mapPageByUriQuery(data);
-      if (page) {
-        return page;
-      }
-    } catch {
-      continue;
+    const page = mapPageByUriQuery(data);
+    if (page) {
+      return page;
     }
   }
 
@@ -157,6 +155,7 @@ export async function generateMetadata({ params, searchParams }: CatchAllPagePro
     fallbackTitle,
     fallbackDescription,
     canonicalPath: page?.uri || createMetadataFallbackPath(slug),
+    fallbackOpenGraphImageUrl: page?.featuredImage?.url ?? null,
   });
 }
 

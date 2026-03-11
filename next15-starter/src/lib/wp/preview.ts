@@ -1,7 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 import { getWordPressPreviewSecret } from "@/lib/wp/client";
 import { WP_PREVIEW_FETCH_OPTIONS } from "@/lib/wp/cache";
-import { wpFetch } from "@/lib/wp/fetcher";
+import { isWpRequestError, wpFetch } from "@/lib/wp/fetcher";
 import { mapPreviewNodeQuery, mapWpPage, mapWpProduct, mapWpProductCategory } from "@/lib/wp/mappers";
 import { GET_PREVIEW_NODE_QUERY } from "@/lib/wp/queries";
 import type {
@@ -23,6 +23,8 @@ export interface PreviewLookup {
 
 const PREVIEW_ID_PARAM_KEYS = ["previewId", "id", "p", "postId", "post_id"] as const;
 const PREVIEW_ID_TYPE_PARAM_KEYS = ["previewType", "idType", "previewIdType"] as const;
+const PREVIEW_ID_MAX_LENGTH = 256;
+const PREVIEW_ID_PATTERN = /^[A-Za-z0-9._:/-]+$/;
 
 function normalizePath(path: string): string {
   const trimmed = path.trim();
@@ -73,6 +75,23 @@ function normalizePreviewIdType(value: string | null): ContentNodeIdTypeEnum {
   return "DATABASE_ID";
 }
 
+function normalizePreviewId(value: string | null): string | null {
+  if (!value) {
+    return null;
+  }
+
+  const normalized = value.trim();
+  if (normalized.length === 0 || normalized.length > PREVIEW_ID_MAX_LENGTH) {
+    return null;
+  }
+
+  if (!PREVIEW_ID_PATTERN.test(normalized)) {
+    return null;
+  }
+
+  return normalized;
+}
+
 function secureCompare(valueA: string, valueB: string): boolean {
   const bufferA = Buffer.from(valueA);
   const bufferB = Buffer.from(valueB);
@@ -96,7 +115,7 @@ export function normalizeInternalRedirectPath(value: string | null | undefined):
   }
 
   const trimmed = value.trim();
-  if (!trimmed || isAbsoluteOrProtocolRelative(trimmed)) {
+  if (!trimmed || isAbsoluteOrProtocolRelative(trimmed) || /[\u0000-\u001f\\]/.test(trimmed)) {
     return "/";
   }
 
@@ -110,7 +129,7 @@ export function normalizeInternalRedirectPath(value: string | null | undefined):
 }
 
 export function extractPreviewLookupFromSearchParams(searchParams: RouteSearchParams): PreviewLookup | null {
-  const id = readSearchParam(searchParams, PREVIEW_ID_PARAM_KEYS);
+  const id = normalizePreviewId(readSearchParam(searchParams, PREVIEW_ID_PARAM_KEYS));
   if (!id) {
     return null;
   }
@@ -122,14 +141,30 @@ export function extractPreviewLookupFromSearchParams(searchParams: RouteSearchPa
   };
 }
 
+export function hasPreviewLookupParams(searchParams: RouteSearchParams): boolean {
+  return PREVIEW_ID_PARAM_KEYS.some((key) => firstStringValue(searchParams[key]) !== null);
+}
+
 async function fetchPreviewNode(
   id: string,
   idType: ContentNodeIdTypeEnum = "DATABASE_ID",
 ): Promise<GetPreviewNodeQuery> {
-  return wpFetch<GetPreviewNodeQuery, GetPreviewNodeVariables>(GET_PREVIEW_NODE_QUERY, {
-    variables: { id, idType },
-    ...WP_PREVIEW_FETCH_OPTIONS,
-  });
+  try {
+    return await wpFetch<GetPreviewNodeQuery, GetPreviewNodeVariables>(GET_PREVIEW_NODE_QUERY, {
+      variables: { id, idType },
+      ...WP_PREVIEW_FETCH_OPTIONS,
+      debugLabel: "preview-node",
+    });
+  } catch (error) {
+    if (isWpRequestError(error) && process.env.NODE_ENV !== "production") {
+      console.error("[preview] fetch_failed", {
+        code: error.code,
+        status: error.status,
+        queryName: error.queryName,
+      });
+    }
+    throw error;
+  }
 }
 
 export function isValidPreviewSecret(secret: string | null | undefined): boolean {

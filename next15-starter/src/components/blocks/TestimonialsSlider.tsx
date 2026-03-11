@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { getSafeMediaAlt, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpMedia } from "@/types/wp";
 
 export interface TestimonialItem {
@@ -43,6 +44,8 @@ export default function TestimonialsSlider({ data, blockId }: TestimonialsSlider
   }
 
   const active = data.testimonials[activeIndex]!;
+  const avatarUrl = getSafeMediaUrl(active.avatar);
+  const avatarAlt = getSafeMediaAlt(active.avatar, active.author);
 
   return (
     <section id={blockId} className="border-y border-slate-100 bg-white py-16">
@@ -50,12 +53,12 @@ export default function TestimonialsSlider({ data, blockId }: TestimonialsSlider
         {data.title ? <h2 className="text-center text-3xl font-semibold tracking-tight text-slate-900">{data.title}</h2> : null}
 
         <article className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
-          <p className="text-pretty text-lg leading-relaxed text-slate-800 md:text-xl">“{active.quote}”</p>
+          <p className="text-pretty text-lg leading-relaxed text-slate-800 md:text-xl">"{active.quote}"</p>
           <div className="mt-6 flex items-center gap-4">
-            {active.avatar ? (
+            {avatarUrl ? (
               <Image
-                src={active.avatar.url}
-                alt={active.avatar.alt || active.author}
+                src={avatarUrl}
+                alt={avatarAlt}
                 width={56}
                 height={56}
                 className="h-14 w-14 rounded-full object-cover"
@@ -67,9 +70,7 @@ export default function TestimonialsSlider({ data, blockId }: TestimonialsSlider
             )}
             <div>
               <p className="font-semibold text-slate-900">{active.author}</p>
-              <p className="text-sm text-slate-600">
-                {[active.role, active.company].filter(Boolean).join(" · ")}
-              </p>
+              <p className="text-sm text-slate-600">{[active.role, active.company].filter(Boolean).join(" | ")}</p>
             </div>
           </div>
 
@@ -109,3 +110,4 @@ export default function TestimonialsSlider({ data, blockId }: TestimonialsSlider
     </section>
   );
 }
+

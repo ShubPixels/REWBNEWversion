@@ -18,6 +18,11 @@ Production-ready starter for a server-first Next.js App Router project using:
 ## Environment Variables
 Copy `.env.example` to `.env.local` and set real values.
 
+Runtime env parsing is centralized in `src/lib/env.ts`.
+- Public and server variables are validated with strict schemas.
+- Core site + WordPress misconfiguration fails fast at startup.
+- Contact-delivery env vars are validated when `/api/contact` is invoked.
+
 | Variable | Required | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Yes | Public site URL used for canonical/OG metadata and robots/sitemap host |
@@ -26,12 +31,14 @@ Copy `.env.example` to `.env.local` and set real values.
 | `NEXT_PUBLIC_WORDPRESS_HOSTNAME` | Recommended | Primary image hostname for `next/image` |
 | `NEXT_PUBLIC_IMAGE_HOSTNAMES` | Recommended | Comma-separated additional image/CDN hostnames for `next/image` |
 | `WORDPRESS_AUTH_TOKEN` | Optional | Bearer token for protected WPGraphQL |
+| `WORDPRESS_REVALIDATION_SECRET` | Optional | Secret for on-demand revalidation endpoints (if enabled) |
 | `WORDPRESS_PREVIEW_SECRET` | Yes | Secret for `/api/draft` and `/api/exit-draft` |
-| `CONTACT_TO_EMAIL` | Yes | Inbox recipient for contact submissions |
-| `CONTACT_FROM_EMAIL` | Yes | Sender address for Resend |
+| `CONTACT_TO_EMAIL` | Yes for `/api/contact` | Inbox recipient for contact submissions |
+| `CONTACT_FROM_EMAIL` | Yes for `/api/contact` | Sender address for Resend |
 | `CONTACT_REPLY_TO_EMAIL` | Optional | Static reply-to override |
 | `CONTACT_SUBJECT_PREFIX` | Optional | Subject prefix for contact emails |
-| `RESEND_API_KEY` | Yes | Resend API key |
+| `RESEND_API_KEY` | Yes for `/api/contact` | Resend API key |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Optional | Turnstile site key for frontend widget integration |
 | `TURNSTILE_SECRET_KEY` | Optional | Enables Turnstile verification if set |
 
 ## Local Development
@@ -56,9 +63,17 @@ WordPress fetch caching is centralized in [`src/lib/wp/cache.ts`](./src/lib/wp/c
 - `WP_TAGS`
   - stable cache tags for global settings, menus, pages, products, categories, sitemap groups
 - `WP_PREVIEW_FETCH_OPTIONS`
-  - forced `no-store` + `revalidate: false` for preview GraphQL requests
+  - forced `mode: preview` + `no-store` + `revalidate: false` for preview GraphQL requests
 
 This keeps ISR behavior consistent across route files and sitemap generation.
+
+Route policy:
+- Generic pages: `content` revalidation + page-specific tags
+- Products: `content` revalidation + product slug tags
+- Product categories: `content` revalidation + category slug tags
+- Global settings / menu trees: `globals` / `menus`
+- Sitemap: `sitemap`
+- Preview requests: always `no-store`
 
 ## Image Domain Strategy
 `next/image` allowlist is built from env variables in [`next.config.ts`](./next.config.ts):
@@ -76,7 +91,9 @@ Guardrails:
 - Secret validated before enabling/disabling draft mode
 - Constant-time secret comparison
 - Internal redirect sanitization (no open redirects)
+- Preview id format and idType are normalized/validated before lookup
 - Draft fetches use WPGraphQL `asPreview` request path (`no-store`)
+- Invalid preview lookup params fail with clear 4xx responses
 
 ## Generic Page Rendering
 - Route: [`app/(site)/[[...slug]]/page.tsx`](./app/(site)/[[...slug]]/page.tsx)
@@ -109,12 +126,17 @@ Endpoint: `POST /api/contact`
 
 Validation/security:
 - Zod payload validation
+- strict payload shape (unknown keys rejected)
+- `Content-Type: application/json` enforcement
+- request size guard
 - honeypot trap support
 - Turnstile verification hook
 - Resend delivery via service abstraction
 
 Error contract:
 - `invalid_json` (400)
+- `invalid_content_type` (415)
+- `payload_too_large` (413)
 - `validation_error` (400 with `fieldErrors`)
 - `turnstile_failed` (400)
 - `delivery_failed` (500)
@@ -132,6 +154,25 @@ All responses include a `requestId`.
 7. Verify page/product/category metadata reflects custom SEO with global fallback.
 8. Verify `/sitemap.xml` and `/robots.txt` are reachable in production.
 9. Run `npm run typecheck` and `npm run build` before final deployment.
+
+## Deployment Notes
+- Set all required env vars in your target environment before first start.
+- Keep `NEXT_PUBLIC_SITE_URL` aligned with the deployed primary domain.
+- Confirm WordPress media hostnames are present in `NEXT_PUBLIC_IMAGE_HOSTNAMES` (or derived host envs).
+- If Turnstile is enabled (`TURNSTILE_SECRET_KEY`), ensure frontend token wiring is present in your chosen contact UI implementation.
+- Use strong random secrets for `WORDPRESS_PREVIEW_SECRET` and `WORDPRESS_REVALIDATION_SECRET`.
+
+## Failure Modes / Troubleshooting
+- App fails to start with env error:
+  - Check validation output from `src/lib/env.ts` and fill missing/invalid variables.
+- Draft mode route returns 401/400:
+  - Verify `secret`, `id`, and `idType` values from WordPress preview links.
+- Content unexpectedly 404s:
+  - Confirm slug/URI exists in WPGraphQL and that the node is published (or draft mode is enabled).
+- GraphQL fetch failures:
+  - In development, inspect server logs for `[wpFetch] request_failed` diagnostics.
+- Contact submissions fail with `delivery_failed`:
+  - Re-check `RESEND_API_KEY`, sender/recipient envs, and Resend domain/sender verification.
 
 ## Editor Checklist
 1. Populate global options (header/footer/contact/social/default SEO/promo).

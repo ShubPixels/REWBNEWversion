@@ -91,6 +91,7 @@ async function getLayoutShellData(): Promise<{
     const globalData = await wpFetch<GetGlobalSettingsQuery>(GET_GLOBAL_SETTINGS_QUERY, {
       tags: [WP_TAGS.globalSettings],
       revalidate: WP_REVALIDATE_SECONDS.globals,
+      debugLabel: "layout-global-settings",
     });
     globalSettings = mapGlobalSettingsQuery(globalData);
   } catch {
@@ -101,6 +102,7 @@ async function getLayoutShellData(): Promise<{
     const menusData = await wpFetch<GetMenusQuery>(GET_MENUS_QUERY, {
       tags: [WP_TAGS.menus],
       revalidate: WP_REVALIDATE_SECONDS.menus,
+      debugLabel: "layout-menus",
     });
     menus = mapMenusQuery(menusData);
   } catch {

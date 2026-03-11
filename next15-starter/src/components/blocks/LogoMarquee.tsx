@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getSafeMediaAlt, getSafeMediaDimensions, getSafeMediaUrl } from "@/lib/wp/media";
 import type { WpLink, WpMedia } from "@/types/wp";
 
 export interface LogoMarqueeItem {
@@ -23,14 +24,18 @@ function isExternalLink(url: string): boolean {
 }
 
 function LogoItem({ item }: { item: LogoMarqueeItem }) {
+  const imageUrl = getSafeMediaUrl(item.logo);
+  const imageAlt = getSafeMediaAlt(item.logo, item.name);
+  const imageSize = getSafeMediaDimensions(item.logo, 140, 64);
+
   const content = (
     <div className="flex min-w-40 items-center justify-center rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-      {item.logo ? (
+      {imageUrl ? (
         <Image
-          src={item.logo.url}
-          alt={item.logo.alt || item.name}
-          width={140}
-          height={64}
+          src={imageUrl}
+          alt={imageAlt}
+          width={imageSize.width}
+          height={imageSize.height}
           className="h-12 w-auto object-contain"
         />
       ) : (

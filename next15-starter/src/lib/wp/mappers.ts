@@ -88,15 +88,20 @@ function dedupeStringList(values: string[]): string[] {
 }
 
 export function mapWpMedia(node: Maybe<WpRawMediaItem>): WpMedia | null {
-  if (!node?.sourceUrl) {
+  if (!node) {
+    return null;
+  }
+
+  const sourceUrl = stringOrEmpty(node.sourceUrl).trim();
+  if (!sourceUrl) {
     return null;
   }
 
   return {
-    id: node.id ?? makeFallbackId("media", node.sourceUrl),
+    id: node.id ?? makeFallbackId("media", sourceUrl),
     databaseId: numberOrNull(node.databaseId),
-    url: node.sourceUrl,
-    alt: stringOrEmpty(node.altText),
+    url: sourceUrl,
+    alt: stringOrEmpty(node.altText).trim(),
     title: nullableString(node.title),
     caption: nullableString(node.caption),
     width: numberOrNull(node.mediaDetails?.width),
@@ -105,12 +110,12 @@ export function mapWpMedia(node: Maybe<WpRawMediaItem>): WpMedia | null {
 }
 
 export function mapWpLink(link: Maybe<WpRawLinkField>): WpLink | null {
-  const url = stringOrEmpty(link?.url);
+  const url = stringOrEmpty(link?.url).trim();
   if (!url) {
     return null;
   }
 
-  const label = stringOrEmpty(link?.title) || url;
+  const label = stringOrEmpty(link?.title).trim() || url;
   const target = nullableString(link?.target);
 
   return { label, url, target };

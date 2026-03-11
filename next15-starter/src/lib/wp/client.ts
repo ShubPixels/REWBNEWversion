@@ -1,48 +1,46 @@
-const GRAPHQL_PATH = "/graphql";
+import { getServerEnv } from "@/lib/env";
 
-function normalizeUrl(url: string): string {
-  return url.trim().replace(/\/+$/, "");
-}
+export type WordPressRequestMode = "published" | "preview";
 
 export function getWordPressGraphqlEndpoint(): string {
-  const explicitEndpoint = process.env.WORDPRESS_GRAPHQL_ENDPOINT;
-  if (explicitEndpoint) {
-    return explicitEndpoint.trim();
-  }
-
-  const publicBaseUrl = process.env.NEXT_PUBLIC_WORDPRESS_URL;
-  if (publicBaseUrl) {
-    return `${normalizeUrl(publicBaseUrl)}${GRAPHQL_PATH}`;
-  }
-
-  throw new Error(
-    "WordPress GraphQL endpoint is not configured. Set WORDPRESS_GRAPHQL_ENDPOINT or NEXT_PUBLIC_WORDPRESS_URL.",
-  );
+  return getServerEnv().wordpressGraphqlEndpoint;
 }
 
 export function getWordPressAuthToken(): string | null {
-  const token = process.env.WORDPRESS_AUTH_TOKEN?.trim();
-  return token ? token : null;
+  return getServerEnv().wordpressAuthToken;
 }
 
 export function getWordPressPreviewSecret(): string | null {
-  const secret = process.env.WORDPRESS_PREVIEW_SECRET?.trim();
-  return secret ? secret : null;
+  return getServerEnv().wordpressPreviewSecret;
 }
 
-export function buildWordPressHeaders(overrides?: HeadersInit): Headers {
+export function getWordPressRevalidationSecret(): string | null {
+  return getServerEnv().wordpressRevalidationSecret;
+}
+
+export interface BuildWordPressHeadersOptions {
+  overrides?: HeadersInit;
+  mode?: WordPressRequestMode;
+  includeAuth?: boolean;
+}
+
+export function buildWordPressHeaders(options: BuildWordPressHeadersOptions = {}): Headers {
   const headers = new Headers({
     "Content-Type": "application/json",
     Accept: "application/json",
   });
 
   const authToken = getWordPressAuthToken();
-  if (authToken) {
+  if (options.includeAuth !== false && authToken) {
     headers.set("Authorization", `Bearer ${authToken}`);
   }
 
-  if (overrides) {
-    const overrideHeaders = new Headers(overrides);
+  if (options.mode === "preview") {
+    headers.set("X-WP-Preview", "true");
+  }
+
+  if (options.overrides) {
+    const overrideHeaders = new Headers(options.overrides);
     overrideHeaders.forEach((value, key) => {
       headers.set(key, value);
     });

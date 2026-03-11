@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { WpProductApplicationsData, WpProductSpecification } from "@/types/wp";
 
 type ProductTabKey = "benefits" | "specifications" | "applications";
@@ -39,6 +39,10 @@ export default function ProductTabs({ benefits, specifications, applications }: 
 
   const firstAvailableTab = tabs.find((tab) => tab.hasContent)?.key ?? "benefits";
   const [activeTab, setActiveTab] = useState<ProductTabKey>(firstAvailableTab);
+
+  useEffect(() => {
+    setActiveTab(firstAvailableTab);
+  }, [firstAvailableTab]);
 
   if (!tabs.some((tab) => tab.hasContent)) {
     return null;

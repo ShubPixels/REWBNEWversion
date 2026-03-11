@@ -15,6 +15,7 @@ import {
 const GENERIC_SUCCESS_MESSAGE = "Your request has been received.";
 const DELIVERY_ERROR_MESSAGE = "We could not send your message at this time.";
 const ALLOWED_METHODS = "POST";
+const MAX_REQUEST_BYTES = 50_000;
 
 function getRequestId(request: NextRequest): string {
   const fromHeader = request.headers.get("x-request-id")?.trim();
@@ -35,6 +36,42 @@ function getClientIp(request: NextRequest): string | null {
 
   const realIp = request.headers.get("x-real-ip")?.trim();
   return realIp && realIp.length > 0 ? realIp : null;
+}
+
+function getContentLength(request: NextRequest): number | null {
+  const value = request.headers.get("content-length");
+  if (!value) {
+    return null;
+  }
+
+  const parsed = Number.parseInt(value, 10);
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
+}
+
+function isJsonContentType(request: NextRequest): boolean {
+  const contentType = request.headers.get("content-type");
+  if (!contentType) {
+    return false;
+  }
+
+  return contentType.toLowerCase().startsWith("application/json");
+}
+
+function getSafeSourceHost(sourceUrl: string): string | null {
+  if (!sourceUrl) {
+    return null;
+  }
+
+  try {
+    return new URL(sourceUrl).hostname;
+  } catch {
+    return null;
+  }
+}
+
+function logContactEvent(level: "info" | "warn" | "error", event: string, payload: Record<string, unknown>): void {
+  const logger = level === "error" ? console.error : level === "warn" ? console.warn : console.info;
+  logger(`[contact] ${event}`, payload);
 }
 
 function jsonSuccess(requestId: string, message = GENERIC_SUCCESS_MESSAGE, status = 200) {
@@ -82,7 +119,17 @@ function jsonError(
 
 export async function POST(request: NextRequest) {
   const requestId = getRequestId(request);
+  const ip = getClientIp(request);
   let payload: unknown;
+
+  if (!isJsonContentType(request)) {
+    return jsonError(requestId, 415, "invalid_content_type", "Content-Type must be application/json.");
+  }
+
+  const contentLength = getContentLength(request);
+  if (contentLength !== null && contentLength > MAX_REQUEST_BYTES) {
+    return jsonError(requestId, 413, "payload_too_large", "Payload is too large.");
+  }
 
   try {
     payload = await request.json();
@@ -105,14 +152,15 @@ export async function POST(request: NextRequest) {
 
   // Honeypot hook: if filled, return generic success to avoid spam signal leakage.
   if (isHoneypotTripped(validatedPayload)) {
-    console.warn("[contact] honeypot_triggered", { requestId });
+    logContactEvent("warn", "honeypot_triggered", { requestId, ip });
     return jsonSuccess(requestId, GENERIC_SUCCESS_MESSAGE);
   }
 
-  const turnstileResult = await verifyTurnstileToken(validatedPayload.turnstileToken, getClientIp(request));
+  const turnstileResult = await verifyTurnstileToken(validatedPayload.turnstileToken, ip);
   if (!turnstileResult.ok) {
-    console.warn("[contact] turnstile_failed", {
+    logContactEvent("warn", "turnstile_failed", {
       requestId,
+      ip,
       errorCodes: turnstileResult.errorCodes,
     });
     return jsonError(requestId, 400, "turnstile_failed", "Bot verification failed.");
@@ -120,15 +168,34 @@ export async function POST(request: NextRequest) {
 
   try {
     const service = createContactDeliveryService();
-    await service.send(validatedPayload);
+    const result = await service.send(validatedPayload);
+    logContactEvent("info", "delivery_success", {
+      requestId,
+      ip,
+      provider: result.provider,
+      messageId: result.messageId,
+      category: validatedPayload.category || null,
+      hasCompany: Boolean(validatedPayload.company),
+      hasPhone: Boolean(validatedPayload.phone),
+      sourceHost: getSafeSourceHost(validatedPayload.sourceUrl),
+    });
     return jsonSuccess(requestId, GENERIC_SUCCESS_MESSAGE);
   } catch (error) {
     if (error instanceof ContactServiceError) {
-      console.error("[contact] delivery_service_error", { requestId, message: error.message });
+      logContactEvent("error", "delivery_service_error", {
+        requestId,
+        ip,
+        code: error.code,
+        message: error.message,
+      });
       return jsonError(requestId, 500, "delivery_failed", DELIVERY_ERROR_MESSAGE);
     }
 
-    console.error("[contact] delivery_unexpected_error", { requestId, error });
+    logContactEvent("error", "delivery_unexpected_error", {
+      requestId,
+      ip,
+      error: error instanceof Error ? error.message : "unknown_error",
+    });
     return jsonError(requestId, 500, "delivery_failed", DELIVERY_ERROR_MESSAGE);
   }
 }

@@ -30,6 +30,11 @@ function isExternalLink(url: string): boolean {
   return /^(https?:\/\/|mailto:|tel:)/i.test(url);
 }
 
+function toTelephoneHref(phone: string): string | null {
+  const normalized = phone.replace(/[^\d+]/g, "");
+  return normalized.length > 0 ? `tel:${normalized}` : null;
+}
+
 export default function SiteFooter({
   brandName,
   footerText,
@@ -41,6 +46,7 @@ export default function SiteFooter({
   socialLinks,
 }: SiteFooterProps) {
   const menuItems = footerMenu.length > 0 ? footerMenu : mapLinksToMenuItems(fallbackLinks);
+  const phoneHref = toTelephoneHref(contactPhone);
 
   return (
     <footer className="border-t border-slate-200 bg-slate-950 text-slate-200">
@@ -57,9 +63,7 @@ export default function SiteFooter({
           <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-400">Contact</h3>
           {contactPhone ? (
             <p className="text-sm">
-              <a href={`tel:${contactPhone}`} className="hover:text-white">
-                {contactPhone}
-              </a>
+              {phoneHref ? <a href={phoneHref} className="hover:text-white">{contactPhone}</a> : <span>{contactPhone}</span>}
             </p>
           ) : null}
           {contactEmail ? (
@@ -95,8 +99,9 @@ export default function SiteFooter({
         </section>
       </div>
       <div className="border-t border-slate-800 px-4 py-4 text-center text-xs text-slate-400">
-        © {new Date().getFullYear()} {brandName}. All rights reserved.
+        (c) {new Date().getFullYear()} {brandName}. All rights reserved.
       </div>
     </footer>
   );
 }
+
